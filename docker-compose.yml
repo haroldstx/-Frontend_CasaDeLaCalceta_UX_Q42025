@@ -1,0 +1,9 @@
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontendCasaDeLaCalceta
+    ports:
+      - "5173:5173"
+    working_dir: /usr/src/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
