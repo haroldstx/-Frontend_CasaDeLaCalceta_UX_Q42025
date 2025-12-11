@@ -1,0 +1,126 @@
+/* src/styles/RegisterPage.css */
+
+/* --- Layout de la página (simulando el split screen) --- */
+.register-page-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  font-family: Arial, sans-serif; /* Puedes cambiar la fuente */
+  background-color: #f0f0f0; /* Fondo general */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom, #ee606b, #ff2233, #fdd929);
+}
+
+/* --- Wrapper del Formulario (parte izquierda) --- */
+.form-wrapper {
+  width: 30%; /* Ancho aproximado como en la imagen */
+  height: 50%;
+  /* Degradado de Naranja a Rojo */
+  background: linear-gradient(to left, #fb2c36, #ff6900);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 15%;
+  margin-top: 2%;
+}
+
+/* --- Contenedor del Formulario (la caja blanca) --- */
+.registrationForm {
+  background-color: white;
+  padding: 20px;
+  padding-top: 10px; /* Reducido para pegarse al header */
+  border-radius: 0 0 5px 5px; /* Bordes inferiores redondeados, superiores no */
+  width: 90%; /* Ancho del formulario dentro del wrapper */
+  margin: -1px auto 20px; /* Ajuste para unirse al header */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Encabezado del Formulario (fondo naranja/rojo) --- */
+.form-header {
+  padding: 40px 20px 20px; /* Espacio para el título */
+  color: white;
+  text-align: center;
+  border-radius: 5px 5px 0 0; /* Bordes superiores redondeados */
+  margin-bottom: 100px;
+}
+
+.form-title {
+  font-size: 45px;
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 5px;
+  font-family: "Inter";
+}
+
+/* --- Estilos para los campos de entrada (InputField.jsx) --- */
+.form-group {
+  margin-bottom: 10px;
+}
+
+.input-label {
+  display: block;
+  font-size: 1.1rem;
+  color: #000000;
+  margin-bottom: 5px;
+  font-weight: bold; /* Hacer el label más notorio como en el ejemplo */
+  margin-top: 15px; /* Espacio antes de cada label */
+}
+
+.registrationForm input[type="text"],
+.registrationForm input[type="email"],
+.registrationForm input[type="password"],
+.registrationForm input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none; /* Eliminar el borde */
+  border-bottom: 1px solid #ccc; /* Línea de abajo como en la imagen */
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-bottom-color 0.3s;
+  background-color: #f3f3f5; /* Fondo transparente */
+}
+
+.registrationForm input:focus {
+  border-bottom-color: #ff6600; /* Color de foco */
+  outline: none;
+}
+
+/* --- Estilo del botón "Iniciar Sesión" --- */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(
+    to right,
+    #ff9933,
+    #ff6600
+  ); /* Degradado del botón */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: opacity 0.3s;
+}
+
+.login-button:hover {
+  opacity: 0.9;
+}
+
+/* --- Contenedor de la Imagen (parte derecha) --- */
+.image-display {
+  width: 50%; /* Ancho aproximado como en la imagen */
+  height: 100vh; /* o el alto deseado */
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden; /* evita que se desborde */
+  margin-left: 15%;
+}
+
+.establishment-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* ajusta la imagen para cubrir el contenedor */
+}
