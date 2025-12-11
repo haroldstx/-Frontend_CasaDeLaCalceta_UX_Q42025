@@ -22,12 +22,6 @@ const RegisterPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Formulario enviado:", formData);
-    alert("Simulación de envío de formulario. Revisa la consola.");
-  };
-
   return (
     <div className={style["register-page-container"]}>
       {/* Contenedor del Formulario (con el degradado de fondo) */}
@@ -37,7 +31,7 @@ const RegisterPage = () => {
         </div>
 
         {/* Cuerpo del Formulario */}
-        <form className={style["registrationForm"]} onSubmit={handleSubmit}>
+        <form className={style["registrationForm"]} onSubmit={{}}>
           <label htmlFor="nombreCompleto" className={style["input-label"]}>
             Nombre completo
           </label>
@@ -45,6 +39,7 @@ const RegisterPage = () => {
             label="nombreCompleto"
             type="text"
             placeholder="Tu nombre"
+            tag="Register"
             value={formData.nombreCompleto}
             onChange={handleChange}
           />
@@ -56,6 +51,7 @@ const RegisterPage = () => {
             label="correoElectronico"
             type="email"
             placeholder="ej. id@email.com"
+            tag="Register"
             value={formData.correoElectronico}
             onChange={handleChange}
           />
@@ -67,6 +63,7 @@ const RegisterPage = () => {
             label="contrasena"
             type="password"
             placeholder="......"
+            tag="Register"
             value={formData.contrasena}
             onChange={handleChange}
           />
@@ -78,6 +75,7 @@ const RegisterPage = () => {
             label="telefono"
             type="tel"
             placeholder="ej. +57 300 123 4567"
+            tag="Register"
             value={formData.telefono}
             onChange={handleChange}
           />
@@ -89,11 +87,11 @@ const RegisterPage = () => {
             label="direccion"
             type="text"
             placeholder="ej. Calle, número, ciudad"
+            tag="Register"
             value={formData.direccion}
             onChange={handleChange}
           />
 
-          {/* Botón de envío */}
           <button type="submit" className={style["login-button"]}>
             Iniciar Sesión
           </button>
