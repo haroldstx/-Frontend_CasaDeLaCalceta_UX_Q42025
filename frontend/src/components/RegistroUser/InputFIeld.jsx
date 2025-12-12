@@ -54,8 +54,6 @@ const InputField = ({
   } else if (tag === "Register") {
     return (
       <div className="form-group">
-        {/* El label va dentro del input container para mejor agrupamiento visual */}
-
         <input
           type={type}
           id={label}

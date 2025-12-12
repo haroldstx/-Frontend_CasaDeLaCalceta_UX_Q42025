@@ -5,6 +5,7 @@ import establecimiento from "../assets/site.jpeg";
 import logo from "../assets/logo.png";
 import emailIcon from "../assets/email.png";
 import passwordIcon from "../assets/lock.png";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [credentials, setCredentials] = useState({
@@ -98,7 +99,7 @@ const LoginPage = () => {
           </form>
 
           <div className={style["signup-link"]}>
-            ¿No tienes cuenta? <a href="#">Crea una aquí</a>
+            ¿No tienes cuenta? <Link to="/register">Crea una aquí</Link>
           </div>
         </div>
       </div>
