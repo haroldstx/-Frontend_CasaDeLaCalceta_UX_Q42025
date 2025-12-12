@@ -3,14 +3,11 @@ import React, { useState } from "react";
 import style from "../NavbarAdmin/Navbaradmin.module.css";
 import logo from "../../assets/logo.png";
 import userProfile from "../../assets/profile-navbar.png";
-import dashboardIcon from "../../assets/dashboard.png";
-import reportesIcon from "../../assets/reportes.png";
-import inventarioIcon from "../../assets/inventario.png";
-import categoriasIcon from "../../assets/categoria.png";
-import usuariosIcon from "../../assets/usuarios.png";
-import puntoVentaIcon from "../../assets/POS.png";
+import homeIcon from "../../assets/home-user.png";
+import productosIcon from "../../assets/productos-user.png";
+import pedidosIcon from "../../assets/pedidos-user.png";
+import perfilIcon from "../../assets/perfil-user.png";
 import logoutIcon from "../../assets/back.png";
-
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -42,48 +39,40 @@ const Sidebar = () => {
             {isOpen && (
               <p className={style["user-name"]}>Diego Ferrera Matute</p>
             )}
-            {isOpen && <p className="user-role">Administrador</p>}
+            {isOpen && <p className="user-role">Cliente</p>}
           </div>
         </div>
 
         {/* Opciones */}
         <div className={style["sidebar-menu"]}>
           <div className={style["menu-item"]}>
-            <img src={dashboardIcon} alt="Dashboard" />
-            {isOpen && <span>Dashboard</span>}
+            <img src={homeIcon} alt="Home" />
+            {isOpen && <span>Home</span>}
           </div>
 
           <div className={style["menu-item"]}>
-            <img src={reportesIcon} alt="Reportes" />
-            {isOpen && <span>Gestión Reportes</span>}
+            <img src={productosIcon} alt="Productos" />
+            {isOpen && <span>Productos</span>}
           </div>
 
           <div className={style["menu-item"]}>
-            <img src={inventarioIcon} alt="Inventario" />
-            {isOpen && <span>Gestión Inventario</span>}
+            <img src={pedidosIcon} alt="Pedidos" />
+            {isOpen && <span>Pedidos</span>}
           </div>
 
           <div className={style["menu-item"]}>
-            <img src={categoriasIcon} alt="Categorías" />
-            {isOpen && <span>Gestión de Categorías</span>}
-          </div>
-
-          <div className={style["menu-item"]}>
-            <img src={usuariosIcon} alt="Usuarios" />
-            {isOpen && <span>Gestión de Usuarios</span>}
-          </div>
-
-          <div className={style["menu-item"]}>
-            <img src={puntoVentaIcon} alt="Punto de venta" />
-            {isOpen && <span>Punto de Venta</span>}
+            <img src={perfilIcon} alt="Perfil" />
+            {isOpen && <span>Mi perfil</span>}
           </div>
         </div>
 
         {/* Cerrar sesión */}
-        <div className={style["sidebar-logout"]}>
-          <img src={logoutIcon} alt="Logout" />
-          {isOpen && <span>Cerrar Sesión</span>}
-        </div>
+        <Link to="/login" style={{ color: "#ffffffff" }}>
+          <div className={style["sidebar-logout"]}>
+            <img src={logoutIcon} alt="Logout" />
+            {isOpen && <span>Cerrar Sesión</span>}
+          </div>
+        </Link>
       </div>
     </>
   );

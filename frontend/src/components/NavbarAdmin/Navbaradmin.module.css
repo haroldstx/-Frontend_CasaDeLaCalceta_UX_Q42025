@@ -86,6 +86,7 @@
   background: rgba(255, 255, 255, 0.12);
   border-top: solid 10px #d32a1e;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .sidebar-logout img {

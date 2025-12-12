@@ -79,11 +79,12 @@ const Sidebar = () => {
           </div>
         </div>
 
-        {/* Cerrar sesión */}
-        <div className={style["sidebar-logout"]}>
-          <img src={logoutIcon} alt="Logout" />
-          {isOpen && <span>Cerrar Sesión</span>}
-        </div>
+        <Link to="/login" style={{ color: "#ffffffff" }}>
+          <div className={style["sidebar-logout"]}>
+            <img src={logoutIcon} alt="Logout" />
+            {isOpen && <span>Cerrar Sesión</span>}
+          </div>
+        </Link>
       </div>
     </>
   );
