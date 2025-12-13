@@ -1,0 +1,449 @@
+.perfil {
+  background-color: #ffffff;
+  min-height: 1080px;
+  min-width: 1920px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.side {
+  background: linear-gradient(
+    180deg,
+    rgba(207, 33, 33, 1) 28%,
+    rgba(215, 69, 64, 1) 60%,
+    rgba(173, 20, 7, 1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  gap: 67px;
+  height: 1117px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 120px;
+}
+
+.homeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.homeButton:hover {
+  opacity: 0.8;
+}
+
+.casaDeLaCalceta {
+  aspect-ratio: 1;
+  height: 73px;
+  object-fit: cover;
+  width: 73px;
+}
+
+.sideBar {
+  height: 1117px;
+  left: 134px;
+  position: absolute;
+  top: 0;
+  width: 378px;
+}
+
+.textWrapper {
+  color: #1b1b1b;
+  font-family: "Roboto-Bold", Helvetica;
+  font-size: 32px;
+  font-weight: 700;
+  left: 88px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 37px;
+  white-space: nowrap;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 48px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 35px;
+  width: 48px;
+  padding: 0;
+  transition: background-color 0.3s ease;
+  border-radius: 50%;
+}
+
+.backButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.arrowIcon {
+  height: 24px;
+  width: 24px;
+  margin: 12px;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  left: 40px;
+  position: absolute;
+  padding: 8px;
+  transition: background-color 0.3s ease;
+  border-radius: 8px;
+}
+
+.menuButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.menuButton1 {
+  top: 162px;
+}
+
+.menuButton2 {
+  top: 276px;
+}
+
+.menuButton3 {
+  top: 405px;
+}
+
+.menuButton4 {
+  top: 510px;
+}
+
+.homeIconContainer {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeIconSidebar {
+  height: 28px;
+  width: 28px;
+}
+
+.person {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.personIcon {
+  height: 28px;
+  width: 28px;
+}
+
+.lock {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lockIcon {
+  height: 28px;
+  width: 28px;
+}
+
+.edit {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editIcon {
+  height: 28px;
+  width: 28px;
+}
+
+.menuLabel {
+  color: #1b1b1b;
+  font-family: "Roboto-Bold", Helvetica;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.menuLabelInactive {
+  color: #848484;
+  font-family: "Roboto-Medium", Helvetica;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.line {
+  height: 1080px;
+  left: 376px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.notificationButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.3s ease;
+  border-radius: 50%;
+  position: absolute;
+  left: 1760px;
+  top: 41px;
+}
+
+.notificationButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.profile {
+  height: 38px;
+  width: 38px;
+}
+
+.profile {
+  height: 38px;
+  width: 38px;
+}
+
+.textWrapper4 {
+  color: #000000;
+  font-family: "Roboto-SemiBold", Helvetica;
+  font-size: 45px;
+  font-weight: 600;
+  left: 660px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 83px;
+  white-space: nowrap;
+  width: 276px;
+}
+
+.firstname {
+  height: 108px;
+  left: 660px;
+  position: absolute;
+  top: 216px;
+  width: 409px;
+}
+
+.rectangle {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #848484;
+  border-radius: 5px;
+  height: 74px;
+  left: -2px;
+  position: absolute;
+  top: 36px;
+  width: 409px;
+}
+
+.textWrapper5 {
+  color: #848484;
+  font-family: "Roboto-SemiBold", Helvetica;
+  font-size: 26px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.textWrapper6 {
+  color: #1b1b1b;
+  font-family: "Roboto-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 59px;
+  white-space: nowrap;
+}
+
+.username {
+  height: 108px;
+  left: 660px;
+  position: absolute;
+  top: 342px;
+  width: 877px;
+}
+
+.rectangle2 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #848484;
+  border-radius: 5px;
+  height: 74px;
+  left: -2px;
+  position: absolute;
+  top: 36px;
+  width: 877px;
+}
+
+.textWrapper7 {
+  color: #848484;
+  font-family: "Roboto-SemiBold", Helvetica;
+  font-size: 26px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 276px;
+}
+
+.textWrapper8 {
+  color: #1b1b1b;
+  font-family: "Roboto-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 59px;
+  width: 407px;
+}
+
+.correo {
+  height: 108px;
+  left: 660px;
+  position: absolute;
+  top: 468px;
+  width: 880px;
+}
+
+.rectangle3 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #848484;
+  border-radius: 5px;
+  height: 74px;
+  left: -2px;
+  position: absolute;
+  top: 36px;
+  width: 880px;
+}
+
+.textWrapper9 {
+  color: #848484;
+  font-family: "Roboto-SemiBold", Helvetica;
+  font-size: 26px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 277px;
+}
+
+.textWrapper10 {
+  color: #1b1b1b;
+  font-family: "Roboto-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 59px;
+  width: 409px;
+}
+
+.telefono {
+  height: 108px;
+  left: 660px;
+  position: absolute;
+  top: 594px;
+  width: 880px;
+}
+
+.address {
+  height: 108px;
+  left: 660px;
+  position: absolute;
+  top: 720px;
+  width: 880px;
+}
+
+.lastname {
+  height: 108px;
+  left: 1125px;
+  position: absolute;
+  top: 221px;
+  width: 411px;
+}
+
+.rectangle4 {
+  background-color: #ffffff;
+  border: 2px solid;
+  border-color: #848484;
+  border-radius: 5px;
+  height: 74px;
+  left: -2px;
+  position: absolute;
+  top: 36px;
+  width: 411px;
+}
+
+.textWrapper11 {
+  color: #848484;
+  font-family: "Roboto-SemiBold", Helvetica;
+  font-size: 26px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 127px;
+}
+
+.textWrapper12 {
+  color: #1b1b1b;
+  font-family: "Roboto-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 27px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 59px;
+  width: 83px;
+}

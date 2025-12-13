@@ -1,0 +1,33 @@
+.field {
+  height: 108px;
+  width: 100%;
+  position: relative;
+}
+
+.label {
+  color: #848484;
+  font-family: "Roboto-SemiBold", Helvetica;
+  font-size: 26px;
+  font-weight: 600;
+  position: absolute;
+  top: 0;
+}
+
+.box {
+  background-color: #ffffff;
+  border: 2px solid #848484;
+  border-radius: 5px;
+  height: 74px;
+  width: 100%;
+  position: absolute;
+  top: 36px;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+}
+
+.value {
+  font-size: 24px;
+  color: #1b1b1b;
+  font-weight: 500;
+}
