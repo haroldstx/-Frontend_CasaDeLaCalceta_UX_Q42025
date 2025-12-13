@@ -1,0 +1,99 @@
+/* Contenedor Principal */
+.error-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif; /* Usar una fuente común */
+  color: #333; /* Color de texto oscuro por defecto */
+}
+
+/* --- Sección Izquierda: Contenido del Error (Fondo Blanco) --- */
+.error-content-section {
+  flex: 0.4; /* Ocupa la mitad del espacio horizontal */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5%;
+  background-color: white;
+  border-right: 15px solid #ff4d4d; /* Borde rojo */
+  box-sizing: border-box;
+}
+
+.error-code {
+  font-size: 8em; /* 404 grande */
+  color: #ff4d4d; /* Color rojo principal */
+  margin-bottom: 0.1em;
+  font-weight: 800;
+}
+
+.error-title {
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  font-size: 1em;
+  color: #666;
+  max-width: 400px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+}
+
+.back-button {
+  background-color: white;
+  color: #ff8c00; /* Naranja para el texto del botón */
+  border: 2px solid #ff8c00;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  max-width: 200px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #fff3e0;
+  color: #e65100;
+  background-color: #fceceb;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Sección Derecha: Ilustración (Fondo Naranja/Rosa) --- */
+.error-illustration-section {
+  flex: 1; /* Ocupa la otra mitad del espacio horizontal */
+  background: linear-gradient(to top right, #ff9966, #ff5e62); /* Gradiente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Simulación de la forma de onda blanca/roja detrás del portátil */
+.error-illustration-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  clip-path: polygon(0 0, 50% 0, 80% 100%, 0 100%);
+  z-index: 1;
+}
+
+.error-text-background {
+  font-size: 15vw; /* ERROR muy grande */
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.1); /* Texto "ERROR" semi-transparente */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: 0.1em;
+  z-index: 0; /* Asegurarse de que esté detrás del portátil */
+}

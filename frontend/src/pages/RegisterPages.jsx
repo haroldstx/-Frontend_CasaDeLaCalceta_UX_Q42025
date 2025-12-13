@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import InputField from "../components/RegistroUser/InputFIeld.jsx";
 import style from "../components/RegistroUser/InputField.module.css";
 import Establecimiento from "../assets/site.jpeg";
+import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const RegisterPage = () => {
   // Estado para manejar los datos del formulario (simulando un control de estado)
@@ -22,14 +24,22 @@ const RegisterPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Formulario enviado:", formData);
-    alert("Simulación de envío de formulario. Revisa la consola.");
-  };
-
   return (
     <div className={style["register-page-container"]}>
+      <img
+        src={logo}
+        alt="btn-back"
+        style={{
+          width: "150px",
+          height: "150px",
+          display: "flex",
+          marginTop: "20px",
+          marginLeft: "20px",
+          cursor: "pointer",
+        }}
+        onClick={() => window.history.back()}
+      />
+
       {/* Contenedor del Formulario (con el degradado de fondo) */}
       <div className={style["form-wrapper"]}>
         <div className={style["form-header"]}>
@@ -37,7 +47,7 @@ const RegisterPage = () => {
         </div>
 
         {/* Cuerpo del Formulario */}
-        <form className={style["registrationForm"]} onSubmit={handleSubmit}>
+        <form className={style["registrationForm"]} onSubmit={{}}>
           <label htmlFor="nombreCompleto" className={style["input-label"]}>
             Nombre completo
           </label>
@@ -45,6 +55,7 @@ const RegisterPage = () => {
             label="nombreCompleto"
             type="text"
             placeholder="Tu nombre"
+            tag="Register"
             value={formData.nombreCompleto}
             onChange={handleChange}
           />
@@ -55,7 +66,8 @@ const RegisterPage = () => {
           <InputField
             label="correoElectronico"
             type="email"
-            placeholder="ej. id@email.com"
+            placeholder="ej. laRacha@email.com"
+            tag="Register"
             value={formData.correoElectronico}
             onChange={handleChange}
           />
@@ -67,6 +79,7 @@ const RegisterPage = () => {
             label="contrasena"
             type="password"
             placeholder="......"
+            tag="Register"
             value={formData.contrasena}
             onChange={handleChange}
           />
@@ -77,7 +90,8 @@ const RegisterPage = () => {
           <InputField
             label="telefono"
             type="tel"
-            placeholder="ej. +57 300 123 4567"
+            placeholder="ej. +504 87917000"
+            tag="Register"
             value={formData.telefono}
             onChange={handleChange}
           />
@@ -89,13 +103,21 @@ const RegisterPage = () => {
             label="direccion"
             type="text"
             placeholder="ej. Calle, número, ciudad"
+            tag="Register"
             value={formData.direccion}
             onChange={handleChange}
           />
 
-          {/* Botón de envío */}
           <button type="submit" className={style["login-button"]}>
-            Iniciar Sesión
+            <Link
+              to="/login"
+              style={{
+                color: "white",
+                fontWeight: "bold",
+              }}
+            >
+              Registrate e Iniciar Sesión
+            </Link>
           </button>
         </form>
       </div>
