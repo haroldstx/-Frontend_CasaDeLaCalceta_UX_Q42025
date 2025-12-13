@@ -1,13 +1,35 @@
-import React from "react";
-import backgroundComplete from "../../pages/Error500/background-complete.png";
-import character from "../../pages/Error500/Character.png";
-import planet from "../../pages/Error500/Planet.png";
-import rectangle3 from "../../pages/Error500/Rectangle 3.svg";
-import stars from "../../pages/Error500/Stars.png";
-import text from "../../pages/Error500/Text.png";
-import styles from "./error500.module.css";
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import backgroundComplete from "../assets/background-complete.png";
+import character from "../assets/Character.png";
+import planet from "../assets/Planet.png";
+import rectangle3 from "../assets/Rectangle 3.svg";
+import stars from "../assets/Stars.png";
+import text from "../assets/Text.png";
+import styles from "../components/Error500/error500.module.css";
 
-const Error500Component = () => {
+const Error500 = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [isRetrying, setIsRetrying] = useState(false);
+
+  const handleRetry = () => {
+    setIsRetrying(true);
+    
+    // Obtener la ruta anterior guardada
+    const previousPath = sessionStorage.getItem('previousPath') || '/';
+    
+    // Simular un pequeño delay antes de reintentar
+    setTimeout(() => {
+      // Limpiar el error guardado
+      sessionStorage.removeItem('hasError500');
+      
+      // Intentar navegar de vuelta a la ruta anterior
+      navigate(previousPath, { replace: true });
+      setIsRetrying(false);
+    }, 500);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles["element-error-page"]}>
@@ -37,9 +59,10 @@ const Error500Component = () => {
 
         <button
           className={styles["text-wrapper-2"]}
-          onClick={() => window.location.reload()}
+          onClick={handleRetry}
+          disabled={isRetrying}
         >
-          Volver a cargar
+          {isRetrying ? 'Reintentando...' : 'Volver a cargar'}
         </button>
 
         <p className={styles.p}>
@@ -60,4 +83,4 @@ const Error500Component = () => {
   );
 };
 
-export default Error500Component;
+export default Error500;
