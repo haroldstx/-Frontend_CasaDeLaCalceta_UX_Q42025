@@ -1,0 +1,203 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #ffee93;
+  margin: 0;
+  padding: 0;
+}
+
+.element-error-page {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #ffffff;
+  border-radius: 40px;
+  height: 1085px;
+  overflow: hidden;
+  position: relative;
+  width: 1510px;
+  margin: auto;
+}
+
+.element-error-page .rectangle {
+  border: 1px solid;
+  border-color: #867f7f;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 2px #c0baba40;
+  height: auto;
+  left: 10.56%;
+  position: absolute;
+  top: 65.34%;
+  width: 24.37%;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.element-error-page .img {
+  height: 100%;
+  left: 43.26%;
+  position: absolute;
+  top: 0;
+  width: 56.97%;
+}
+
+.element-error-page .element-error-lost-in {
+  height: 57.52%;
+  left: 52.71%;
+  position: absolute;
+  top: 20.02%;
+  width: 44.71%;
+}
+
+.element-error-page .background-complete {
+  height: 624px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 637px;
+}
+
+.element-error-page .text-wrapper {
+  align-items: center;
+  color: #383b3d;
+  display: flex;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 280px;
+  font-weight: 700;
+  height: 38.03%;
+  justify-content: center;
+  left: 6.52%;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 16.98%;
+  white-space: nowrap;
+  width: 24.85%;
+}
+
+.element-error-page .planet {
+  height: 39.17%;
+  left: 28.62%;
+  position: absolute;
+  top: 17.93%;
+  width: 37.18%;
+}
+
+.element-error-page .text {
+  height: 2.42%;
+  left: 34.78%;
+  position: absolute;
+  top: 14.02%;
+  width: 24.78%;
+}
+
+.element-error-page .stars {
+  height: 88.83%;
+  left: 3.58%;
+  position: absolute;
+  top: 5.58%;
+  width: 87.15%;
+}
+
+.element-error-page .div {
+  align-items: center;
+  color: #383b3d;
+  display: flex;
+  font-family: "Open Sans-Bold", Helvetica;
+  font-size: 280px;
+  font-weight: 700;
+  height: 38.03%;
+  justify-content: center;
+  left: 64.14%;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 16.98%;
+  white-space: nowrap;
+  width: 24.85%;
+}
+
+.element-error-page .character {
+  height: 82.04%;
+  left: 18.82%;
+  position: absolute;
+  top: 10.25%;
+  width: 80.59%;
+}
+
+.element-error-page .text-wrapper-2 {
+  color: #000000;
+  font-family: "Open Sans-SemiBold", Helvetica;
+  font-size: 40px;
+  font-weight: 600;
+  height: auto;
+  left: 11.56%;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 65.34%;
+  width: 24.37%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 25px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.element-error-page .text-wrapper-2:hover {
+  color: #BF4408;
+}
+
+.element-error-page .p {
+  color: #403d3d;
+  font-family: "Open Sans-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  height: 3.71%;
+  left: 9.40%;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 44.70%;
+  width: 33.89%;
+}
+
+.element-error-page .OOPS-internal-server {
+  color: #000000;
+  font-family: "Open Sans-SemiBold", Helvetica;
+  font-size: 96px;
+  font-weight: 600;
+  height: auto;
+  left: 9.38%;
+  letter-spacing: 0;
+  line-height: 1.2;
+  position: absolute;
+  top: 20%;
+  width: 30.00%;
+}
+
+.element-error-page .span {
+  color: #000000;
+  font-family: "Open Sans-SemiBold", Helvetica;
+  font-size: 96px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.element-error-page .text-wrapper-3 {
+  font-size: 40px;
+  display: block;
+  margin-top: 10px;
+}

@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+}
+
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.login-card h4 {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+}
+
+/* --- Panel Izquierdo (Imagen) --- */
+.left-pane {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.left-pane::after {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.767);
+}
+
+/* --- Panel Derecho (Formulario) --- */
+.right-pane {
+  flex: 0.8;
+  background: linear-gradient(to bottom, #ee606b, #ff2233, #fdd929);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+
+/* --- Logo Circular --- */
+.logo-container {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  width: 90%;
+  height: auto;
+}
+
+/* --- Tarjeta del Formulario (Efecto Glassmorphism) --- */
+.login-card {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 3rem 2.5rem;
+  width: 100%;
+  max-width: 70%;
+  text-align: center;
+  color: white;
+  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); */
+}
+
+.login-card h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.login-card p {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* --- Utilidades del Formulario --- */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 2.3rem;
+  color: white;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+}
+.checkbox-container input[type="checkbox"] {
+  width: auto;
+  margin-right: 0;
+}
+.forgot-password {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+  cursor: pointer;
+  margin-left: 0;
+}
+
+.forgot-password:hover {
+  border-bottom: 1px solid white;
+}
+
+.signup-link {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+.signup-link a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.makeLogin-button {
+  width: 80%;
+  padding: 12px 15px 12px 45px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  background-color: #fff8e7;
+  color: #333;
+  font-size: 0.9rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding-right: 40px;
+  font-size: 20px;
+}
+
+.login-card input[type="email"],
+.login-card input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  background-color: #fff8e7;
+  font-size: 0.9rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}

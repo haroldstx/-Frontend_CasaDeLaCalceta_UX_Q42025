@@ -1,0 +1,146 @@
+.sidebar-container {
+  width: 350px;
+  height: 100vh;
+  background: linear-gradient(#8a0b0b, #d32a1e);
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  color: white;
+  font-family: sans-serif;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  align-items: center;
+}
+
+.sidebar-logo img {
+  width: 150px;
+  display: block;
+  margin: 0 auto 15px;
+  text-align: center;
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-top: 2px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(255, 255, 255);
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.sidebar-user:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.user-img {
+  width: 60px;
+  height: 60px;
+  margin-left: 50px;
+  margin-right: 15px;
+  border-radius: 50%;
+  background: white;
+}
+
+.user-info p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.user-role {
+  opacity: 0.8;
+}
+
+.sidebar-menu {
+  flex: 1;
+  margin-top: 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 35px;
+  font-size: 20px;
+  gap: 15px;
+}
+
+.menu-item img {
+  width: 50px;
+  margin-right: 12px;
+}
+
+.menu-item:hover {
+  background: #f88800;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.sidebar-logout {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.12);
+  border-top: solid 10px #d32a1e;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.sidebar-logout img {
+  width: 60px;
+  margin-right: 12px;
+}
+
+.sidebar-logout:hover {
+  background: #f19d36;
+}
+
+.burger-btn {
+  width: auto;
+  position: relative;
+  top: 15px;
+  left: 0px;
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.sidebar-container.open {
+  width: 350px;
+}
+
+.sidebar-container.closed {
+  width: 80px;
+}
+
+.sidebar-container.closed .menu-item,
+.sidebar-container.closed .sidebar-logout {
+  justify-content: center;
+}
+
+.sidebar-container.closed .sidebar-user {
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: none;
+  border-top: none;
+  margin-bottom: 20px;
+}
+
+.sidebar-container.closed .img .sidebar-container.closed img {
+  margin-right: 0;
+}
+.sidebar-container.closed .sidebar-logo img {
+  width: 75px;
+  height: 75px;
+  margin: 0;
+}
+
+.sidebar-container.closed .sidebar-user img {
+  margin: 20px 0 10px 0;
+}

@@ -13,8 +13,8 @@
 
 /* --- Wrapper del Formulario (parte izquierda) --- */
 .form-wrapper {
-  width: 30%; /* Ancho aproximado como en la imagen */
-  height: 50%;
+  width: 40%;
+  height: 90%;
   /* Degradado de Naranja a Rojo */
   background: linear-gradient(to left, #fb2c36, #ff6900);
   display: flex;
@@ -30,8 +30,8 @@
   padding: 20px;
   padding-top: 10px; /* Reducido para pegarse al header */
   border-radius: 0 0 5px 5px; /* Bordes inferiores redondeados, superiores no */
-  width: 90%; /* Ancho del formulario dentro del wrapper */
-  margin: -1px auto 20px; /* Ajuste para unirse al header */
+  width: 95%; /* Ancho del formulario dentro del wrapper */
+  margin: -1px auto 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -41,7 +41,7 @@
   color: white;
   text-align: center;
   border-radius: 5px 5px 0 0; /* Bordes superiores redondeados */
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 
 .form-title {
@@ -49,7 +49,7 @@
   font-weight: bold;
   margin: 0;
   padding-bottom: 5px;
-  font-family: "Inter";
+  font-family: "'Segoe UI', sans-serif";
 }
 
 /* --- Estilos para los campos de entrada (InputField.jsx) --- */
@@ -107,11 +107,14 @@
 
 .login-button:hover {
   opacity: 0.9;
+  color: #f3ebe5;
+  transition: 0.5s;
+  transform: scale(1.02);
 }
 
 /* --- Contenedor de la Imagen (parte derecha) --- */
 .image-display {
-  width: 50%; /* Ancho aproximado como en la imagen */
+  width: 70%; /* Ancho aproximado como en la imagen */
   height: 100vh; /* o el alto deseado */
   display: flex;
   justify-content: flex-end;
