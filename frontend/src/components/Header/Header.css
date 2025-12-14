@@ -1,0 +1,175 @@
+.app-header {
+  background: linear-gradient(90deg, #CF2121 0%, #D74540 50%, #AD1407 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  min-height: 70px;
+  gap: 20px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-image {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex: 1;
+  justify-content: center;
+}
+
+.header-search {
+  flex: 0 1 400px;
+  max-width: 400px;
+}
+
+.header-search .search-bar {
+  padding: 0;
+}
+
+.header-search .search-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 6px 12px;
+  height: 36px;
+}
+
+.header-search .search-input {
+  font-size: 13px;
+}
+
+.header-search .search-button {
+  padding: 5px 14px;
+  font-size: 12px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .header-container {
+    gap: 16px;
+  }
+
+  .header-content {
+    gap: 20px;
+  }
+
+  .logo-image {
+    height: 45px;
+  }
+
+  .header-search .search-container {
+    padding: 6px 12px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    padding: 10px 16px;
+    height: auto;
+    min-height: auto;
+    gap: 12px;
+  }
+
+  .header-content {
+    width: 100%;
+    gap: 12px;
+    order: 1;
+  }
+
+  .logo-image {
+    height: 40px;
+  }
+
+  .header-search {
+    flex: 1;
+    min-width: 150px;
+  }
+
+  .header-nav {
+    order: 2;
+    width: 100%;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  .header-search .search-container {
+    padding: 6px 12px;
+    height: 36px;
+  }
+
+  .header-search .search-input {
+    font-size: 13px;
+  }
+
+  .header-search .search-button {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .header-content {
+    gap: 8px;
+  }
+
+  .logo-image {
+    height: 35px;
+  }
+
+  .header-search {
+    min-width: 120px;
+  }
+
+  .header-search .search-container {
+    padding: 4px 10px;
+    height: 32px;
+  }
+
+  .header-search .search-input {
+    font-size: 12px;
+  }
+
+  .header-search .search-button {
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+}

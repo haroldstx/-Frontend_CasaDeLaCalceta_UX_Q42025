@@ -1,0 +1,139 @@
+.pd-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.pd-modal{
+  width: 860px;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.pd-close{
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: transparent;
+  border: none;
+  outline: none !important;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  color: #333;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.pd-close:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.pd-close:focus-visible{
+  outline: none !important;
+}
+
+.pd-content{
+  display: flex;
+  gap: 20px;
+}
+
+.pd-image{
+  flex: 0 0 420px;
+  height: 420px;
+  background: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pd-image img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.pd-image-placeholder{
+  color: #999;
+}
+
+.pd-info{
+  padding: 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pd-title{
+  margin: 0 0 8px 0;
+}
+
+.pd-label{
+  margin: 6px 0 2px 0;
+  color: #666;
+  font-weight: 600;
+}
+
+.pd-desc{
+  margin: 0 0 8px 0;
+  color: #444;
+}
+
+.pd-stock{
+  margin: 6px 0 18px 0;
+  color: #444;
+  font-weight: 600;
+}
+
+.pd-attr{
+  margin: 6px 0;
+  color: #444;
+}
+
+.pd-footer{
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pd-price{
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.pd-add{
+  background: #FFD700;
+  color: #000;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 700;
+}
+
+.pd-add svg{
+  transform: translateY(-1px);
+}
