@@ -8,6 +8,7 @@ import ErrorPage404 from "./pages/Error404.jsx";
 import NavbarAdmin from "./components/NavbarAdmin/NavbarAdmin.jsx";
 import NavbarCliente from "./components/NavbarCliente/NavbarCliente.jsx";
 import Error500 from "./pages/Error500.jsx";
+import VerMiPerfilPage from "./pages/VerMiPerfilPage.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/navbar-cliente" element={<NavbarCliente />} />
         <Route path="*" element={<ErrorPage404 />} />
         <Route path="/error-500" element={<Error500 />} />
+        <Route path="/ver-mi-perfil" element={<VerMiPerfilPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
