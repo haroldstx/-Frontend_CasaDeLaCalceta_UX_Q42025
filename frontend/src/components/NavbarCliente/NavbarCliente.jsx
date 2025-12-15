@@ -60,10 +60,12 @@ const Sidebar = () => {
             {isOpen && <span>Pedidos</span>}
           </div>
 
-          <div className={style["menu-item"]}>
-            <img src={perfilIcon} alt="Perfil" />
-            {isOpen && <span>Mi perfil</span>}
-          </div>
+          <Link to="/ver-mi-perfil" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className={style["menu-item"]}>
+              <img src={perfilIcon} alt="Perfil" />
+              {isOpen && <span>Mi perfil</span>}
+            </div>
+          </Link>
         </div>
 
         {/* Cerrar sesión */}

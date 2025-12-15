@@ -1,0 +1,49 @@
+/* CategorySection limpio: solo productos */
+.category-section {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #111;
+}
+
+.active-filter {
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  color: #9a3412;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.loading,
+.no-products {
+  text-align: center;
+  padding: 50px 16px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  color: #444;
+}
+
+/* separa la sección de filtros del grid de productos */
+.category-section {
+  margin-top: 24px;
+}
+
+/* separa el grid dentro de la sección */
+.category-section .product-grid {
+  margin-top: 18px;
+}
+

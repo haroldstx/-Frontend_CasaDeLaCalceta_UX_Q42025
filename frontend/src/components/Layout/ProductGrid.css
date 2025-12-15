@@ -1,0 +1,6 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards por fila */
+  gap: 24px;
+  width: 100%;
+}
