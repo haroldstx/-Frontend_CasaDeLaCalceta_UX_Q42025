@@ -1,81 +1,117 @@
 // components/CategorySection/CategorySection.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import ProductCard from '../ProductCard/ProductCard';
+import ProductGrid from '../Layout/ProductGrid';
 import './CategorySection.css';
 
-// Productos de prueba
 const mockProducts = [
   {
     id: 1,
-    nombre: 'Calcetines Rojo Brillante',
-    precio: 50,
+    nombre: "Calcetines Harry Potter",
+    descripcion: "Calcetines temáticos",
+    precio: 150,
+    imagen: "https://via.placeholder.com/600x600.png?text=Harry+Potter",
+    categoria: "Tematicos",
+    subcategoria: "Harry Potter",
     activo: true,
-    ProductoImagenes: [
-      { ruta: 'https://via.placeholder.com/200x200?text=Calcetines+Rojo' }
-    ]
   },
   {
     id: 2,
-    nombre: 'Calcetines Azul Marino',
-    precio: 45,
+    nombre: "Calcetines South Park",
+    descripcion: "Calcetines temáticos",
+    precio: 150,
+    imagen: "https://via.placeholder.com/600x600.png?text=South+Park",
+    categoria: "Tematicos",
+    subcategoria: "South Park",
     activo: true,
-    ProductoImagenes: [
-      { ruta: 'https://via.placeholder.com/200x200?text=Calcetines+Azul' }
-    ]
   },
   {
     id: 3,
-    nombre: 'Calcetines Negro Clásico',
-    precio: 35,
+    nombre: "Calcetines Snoopy",
+    descripcion: "Calcetines temáticos",
+    precio: 150,
+    imagen: "https://via.placeholder.com/600x600.png?text=Snoopy",
+    categoria: "Tematicos",
+    subcategoria: "Snoopy",
     activo: true,
-    ProductoImagenes: [
-      { ruta: 'https://via.placeholder.com/200x200?text=Calcetines+Negro' }
-    ]
   },
   {
     id: 4,
-    nombre: 'Calcetines Blanco Puro',
-    precio: 40,
+    nombre: "Calcetines Grinch",
+    descripcion: "Calcetines temáticos",
+    precio: 150,
+    imagen: "https://via.placeholder.com/600x600.png?text=Grinch",
+    categoria: "Tematicos",
+    subcategoria: "Grinch",
     activo: true,
-    ProductoImagenes: [
-      { ruta: 'https://via.placeholder.com/200x200?text=Calcetines+Blanco' }
-    ]
   }
 ];
 
-const CategorySection = ({ title, categoryId, theme, products: initialProducts, searchTerm = '' }) => {
-  const [products, setProducts] = useState(initialProducts || mockProducts);
+
+const CategorySection = ({
+  title = '',
+  products: initialProducts,
+  searchTerm = '',
+  selectedCategory = null, // <- lo controlará HomePage después
+}) => {
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    // Filtrar productos por búsqueda
-    let filtered = mockProducts.filter(p => p.activo);
-    
+  const sourceProducts = useMemo(
+    () => (Array.isArray(initialProducts) && initialProducts.length ? initialProducts : mockProducts),
+    [initialProducts]
+  );
+
+  const products = useMemo(() => {
+    let filtered = sourceProducts.filter(p => p.activo !== false);
+
     if (searchTerm.trim()) {
-      filtered = filtered.filter(p => 
-        p.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (p.descripcion && p.descripcion.toLowerCase().includes(searchTerm.toLowerCase()))
+      const term = searchTerm.toLowerCase();
+      filtered = filtered.filter(
+        p =>
+          (p.nombre || '').toLowerCase().includes(term) ||
+          ((p.descripcion || '').toLowerCase().includes(term))
       );
     }
-    
-    setProducts(filtered);
+
+    if (selectedCategory) {
+      const sel = selectedCategory.toLowerCase();
+      filtered = filtered.filter(
+        p =>
+          ((p.categoria || '').toLowerCase() === sel) ||
+          ((p.subcategoria || '').toLowerCase() === sel)
+      );
+    }
+
+    return filtered;
+  }, [sourceProducts, searchTerm, selectedCategory]);
+
+  useEffect(() => {
     setLoading(false);
-  }, [searchTerm]);
+  }, [searchTerm, selectedCategory, sourceProducts]);
 
   return (
     <section className="category-section">
-      <h2 className="section-title">{title}</h2>
-      
+      {(title || selectedCategory) && (
+        <div className="category-header">
+          {title ? <h2 className="section-title">{title}</h2> : <div />}
+          {selectedCategory && (
+            <div className="active-filter">
+              Filtrando por: <strong>{selectedCategory}</strong>
+            </div>
+          )}
+        </div>
+      )}
+
       {loading ? (
         <div className="loading">Cargando productos...</div>
       ) : products.length === 0 ? (
         <div className="no-products">No hay productos disponibles</div>
       ) : (
-        <div className="products-grid">
-          {products.map(product => (
+        <ProductGrid columns={4}>
+          {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </div>
+        </ProductGrid>
       )}
     </section>
   );

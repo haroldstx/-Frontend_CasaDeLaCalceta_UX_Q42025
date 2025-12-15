@@ -48,8 +48,6 @@ function ProductDetail({ product = {}, onClose = () => {} }) {
             <p className="pd-label">Descripcion:</p>
             <p className="pd-desc">{product.descripcion || "Sin descripción"}</p>
             <p className="pd-stock">Stock: {product.stock ?? "N/A"}</p>
-            <p className="pd-attr"><strong>Talla:</strong> {product.talla ?? "N/A"}</p>
-            <p className="pd-attr"><strong>Color:</strong> {product.color ?? "N/A"}</p>
 
             <div className="pd-footer">
               <div className="pd-price">L. {product.precio ?? "N/A"}</div>

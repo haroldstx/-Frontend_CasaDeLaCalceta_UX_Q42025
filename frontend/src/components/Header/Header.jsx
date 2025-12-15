@@ -9,16 +9,17 @@ const Header = ({ onSearch, onClear }) => {
   return (
     <header className="app-header">
       <div className="header-container">
-        <MobileMenu />
-        
-        <div className="logo-section">
-          <img 
-            src={siteConfig.logo} 
-            alt={siteConfig.logoAlt}
-            className="logo-image"
-          />
+        <div className="header-left">
+          <MobileMenu />
+          <div className="logo-section">
+            <img 
+              src={siteConfig.logo} 
+              alt={siteConfig.logoAlt}
+              className="logo-image"
+            />
+          </div>
         </div>
-        
+
         <div className="header-content">
           <div className="header-search">
             <SearchBar 

@@ -5,8 +5,8 @@
   top: 70px;
   width: 320px;
   height: calc(100vh - 70px);
-  background-color: #fff; /* fondo blanco */
-  color: #111; /* texto negro */
+  background-color: #fff; 
+  color: #111;
   box-shadow: -2px 0 12px rgba(0,0,0,0.12);
   z-index: 1000;
   display: flex;
@@ -15,7 +15,7 @@
 }
 
 .cart-dropdown-header {
-  background: #B41112; /* header rojo */
+  background: #B41112;
   color: #fff;
   padding: 14px 16px;
   display: flex;

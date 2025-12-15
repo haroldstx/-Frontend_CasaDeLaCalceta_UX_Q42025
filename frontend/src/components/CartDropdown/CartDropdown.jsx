@@ -2,9 +2,14 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import { useCart } from '../../contexts/CartContext';
 import './CartDropdown.css';
+import { useNavigate } from "react-router-dom";
+
 
 const CartDropdown = ({ onClose }) => {
   const { cartItems, updateQuantity, removeFromCart, clearCart } = useCart();
+  const navigate = useNavigate();
+
+
 
   const formatPrice = (value) => {
     const n = Number(value) || 0;
@@ -65,7 +70,9 @@ const CartDropdown = ({ onClose }) => {
             clearCart();
             toast.info('Carrito vaciado', { autoClose: 2000 });
           }}>Vaciar</button>
-          <button className="checkout-btn" onClick={() => { /* navegar a checkout si se desea */ }} >Finalizar Compra</button>
+          <button className="checkout-btn" onClick={() => navigate("/facturacion", { state: { asOverlay: true } })}>
+            Finalizar compra
+          </button>
         </div>
       </div>
     </div>

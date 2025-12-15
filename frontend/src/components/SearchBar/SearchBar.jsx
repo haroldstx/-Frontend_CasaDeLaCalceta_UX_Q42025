@@ -1,32 +1,28 @@
 import React, { useState } from 'react';
 import './SearchBar.css';
 
-const SearchBar = ({ onSearch, placeholder = 'Buscar calcetines...', onClear }) => {
+const SearchBar = ({
+  onSearch,
+  onClear,
+  placeholder = 'Buscar calcetines...',
+}) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
-    if (onSearch) {
-      onSearch(value);
-    }
+    onSearch?.(value);
   };
 
   const handleClear = () => {
     setSearchTerm('');
-    if (onClear) {
-      onClear();
-    } else if (onSearch) {
-      onSearch('');
-    }
+    onClear ? onClear() : onSearch?.('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (onSearch) {
-      onSearch(searchTerm);
-    }
+    onSearch?.(searchTerm);
   };
 
   return (
@@ -35,8 +31,8 @@ const SearchBar = ({ onSearch, placeholder = 'Buscar calcetines...', onClear }) 
         <input
           type="text"
           className="search-input"
-          placeholder={placeholder}
           value={searchTerm}
+          placeholder={placeholder}
           onChange={handleInputChange}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
@@ -51,8 +47,6 @@ const SearchBar = ({ onSearch, placeholder = 'Buscar calcetines...', onClear }) 
             aria-label="Limpiar búsqueda"
           >
             <svg
-              width="16"
-              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -60,8 +54,8 @@ const SearchBar = ({ onSearch, placeholder = 'Buscar calcetines...', onClear }) 
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </button>
         )}
@@ -72,8 +66,6 @@ const SearchBar = ({ onSearch, placeholder = 'Buscar calcetines...', onClear }) 
           aria-label="Buscar"
         >
           <svg
-            width="28"
-            height="28"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -81,8 +73,8 @@ const SearchBar = ({ onSearch, placeholder = 'Buscar calcetines...', onClear }) 
             strokeLinecap="round"
             strokeLinejoin="round"
           >
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="m21 21-4.35-4.35"></path>
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
           </svg>
         </button>
       </div>

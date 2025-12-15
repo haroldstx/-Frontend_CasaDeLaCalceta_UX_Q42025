@@ -8,6 +8,8 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   height: 100%;
+  /* Lock card min height so cards align in rows */
+  min-height: 360px;
 }
 
 .product-card:hover {
@@ -32,6 +34,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  display: block;
 }
 
 .product-card:hover .product-image {

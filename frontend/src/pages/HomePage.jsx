@@ -11,18 +11,7 @@ const HomePage = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // temas predefinidos para secciones temáticas
-  const thematicSections = [
-    { id: 'harry-potter', title: 'Calcetines Harry Potter', theme: 'harry-potter' },
-    { id: 'soul-park', title: 'Calcetines Soul Park', theme: 'soul-park' },
-    { id: 'snoopy', title: 'Calcetines Snoopy', theme: 'snoopy' },
-    { id: 'grinch', title: 'Calcetines Grinch', theme: 'grinch' },
-    { id: 'coca-cola', title: 'Calcetines Coca Cola', theme: 'coca-cola' },
-    { id: 'chocos', title: 'Calcetines Chocos', theme: 'chocos' },
-    { id: 'mesel', title: 'Calcetines Mesel', theme: 'mesel' },
-    { id: 'dragon-ball', title: 'Calcetines Dragon Ball', theme: 'dragon-ball' }
-  ];
-
+  
   const [categories, setCategories] = useState([]);
 
   const handleSearch = (searchTermInput) => {

@@ -1,129 +1,130 @@
 .search-bar {
   width: 100%;
-  padding: 20px 0;
+  padding: 0; /* importante para el header */
 }
 
+/* Pill principal */
 .search-container {
+  width: 100%;
+  height: 38px;
+
   display: flex;
   align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
+  gap: 8px;
+
   background-color: #fff;
-  border: none;
-  border-radius: 50px;
-  padding: 8px 16px;
-  transition: all 0.3s ease;
-  gap: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 999px;
+  padding: 0 14px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.25s ease;
+
+  overflow: hidden; /* evita recortes raros */
 }
 
 .search-container.focused {
-  border-color: #667eea;
-  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-.search-icon {
-  color: #333;
-  flex-shrink: 0;
-  transition: color 0.3s ease;
-}
-
-.search-container.focused .search-icon {
-  color: #333;
-}
-
+/* Input */
 .search-input {
   flex: 1;
+  height: 100%;
   border: none;
   outline: none;
-  font-size: 16px;
-  font-family: inherit;
+  background: transparent;
+
+  font-size: 13px;
   color: #333;
-  background-color: transparent;
-  padding: 0;
   min-width: 0;
 }
 
 .search-input::placeholder {
-  color: #aaa;
+  color: #999;
 }
 
+/* Botón X */
 .clear-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
+  width: 28px;
+  height: 28px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
-  transition: color 0.3s ease;
-  flex-shrink: 0;
+
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+
+  color: #777; /* los SVG usan currentColor */
+  padding: 0;
 }
 
 .clear-button:hover {
-  color: #666;
+  background: rgba(0, 0, 0, 0.06);
 }
 
+/* Botón lupa */
 .search-button {
-  background-color: transparent;
-  color: #333;
-  border: none;
-  outline: none;
-  padding: 6px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-}
 
-.search-button:focus {
-  outline: none;
-  box-shadow: none;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+
+  color: #333; /* los SVG usan currentColor */
+  padding: 0;
 }
 
 .search-button:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  transform: scale(1.05);
+  background: rgba(0, 0, 0, 0.08);
 }
 
-.search-button:active {
-  transform: scale(0.95);
+/* ===== FIX: SVG visibles y con tamaño ===== */
+.clear-button svg,
+.search-button svg {
+  display: block;
+  stroke: currentColor;
+  fill: none;
 }
 
-/* Responsive design */
+.clear-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.search-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .search-container {
-    padding: 10px 16px;
-    max-width: 100%;
+    height: 36px;
   }
 
   .search-input {
-    font-size: 14px;
-  }
-
-  .search-button {
-    padding: 6px 18px;
     font-size: 12px;
   }
 }
+/* Quitar outline y focus ring en botones del search */
+.clear-button,
+.search-button {
+  outline: none;
+}
 
-@media (max-width: 480px) {
-  .search-bar {
-    padding: 16px 0;
-  }
-
-  .search-container {
-    gap: 8px;
-    padding: 10px 12px;
-  }
-
-  .search-button {
-    padding: 6px 14px;
-  }
+.clear-button:focus,
+.search-button:focus,
+.clear-button:focus-visible,
+.search-button:focus-visible {
+  outline: none;
+  box-shadow: none;
 }

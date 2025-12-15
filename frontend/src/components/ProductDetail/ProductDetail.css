@@ -125,15 +125,21 @@
   background: #FFD700;
   color: #000;
   border: none;
-  padding: 10px 14px;
+
+  padding: 6px 10px;         
   border-radius: 999px;
+
   cursor: pointer;
   display: inline-flex;
-  gap: 8px;
   align-items: center;
-  font-weight: 700;
+  gap: 6px;                  
+
+  font-size: 0.85rem;        
+  font-weight: 600;
 }
 
 .pd-add svg{
+  width: 14px;
+  height: 14px;
   transform: translateY(-1px);
 }
