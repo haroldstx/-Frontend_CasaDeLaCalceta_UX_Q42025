@@ -13,15 +13,15 @@
   width: 70px;
 }
 
+.users-page.collapsed {
+  margin-left: 10px;
+}
+
 .users-page {
   flex-grow: 1;
   background-color: #f6f7fb;
   min-height: 100vh;
   transition: margin-left 0.3s ease;
-}
-
-.users-page.collapsed {
-  margin-left: 10px;
 }
 
 .users-table {

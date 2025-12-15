@@ -17,6 +17,7 @@ import EditarPerfil from "./pages/EditarPerfilPage.jsx";
 import BillingPage from "./pages/BillingPage.jsx";
 import ReportsPage from "./pages/ReportsPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import DashboardPage from "./pages/Dashboard.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -36,6 +37,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/editar-perfil" element={<EditarPerfil />} />
           <Route path="/facturacion" element={<BillingPage />} />
           <Route path="/reportes" element={<ReportsPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer
