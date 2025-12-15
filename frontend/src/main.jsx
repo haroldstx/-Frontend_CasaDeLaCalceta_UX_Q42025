@@ -14,6 +14,8 @@ import VerMiPerfilPage from "./pages/VerMiPerfilPage.jsx";
 import EditarPerfil from "./pages/EditarPerfilPage.jsx";
 import BillingPage from "./pages/BillingPage.jsx";
 import ReportsPage from "./pages/ReportsPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import OrdersPage from "./pages/OrdersPage.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -31,6 +33,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/editar-perfil" element={<EditarPerfil />} />
         <Route path="/facturacion" element={<BillingPage />} />
         <Route path="/reportes" element={<ReportsPage />} />
+        <Route path="/Inicio" element={<HomePage />} />
+        <Route path="/Pedidos" element={<OrdersPage />} />
       </Routes>
     </BrowserRouter>
     <ToastContainer

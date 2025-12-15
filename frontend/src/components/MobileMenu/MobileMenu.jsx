@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import NavbarCliente from "../NavbarCliente/NavbarCliente";
+
 import './MobileMenu.css';
 
 const MobileMenu = () => {
@@ -49,31 +51,7 @@ const MobileMenu = () => {
       )}
 
       <nav className={`mobile-menu ${isOpen ? 'open' : ''}`}>
-        <div className="mobile-menu-header">
-          <div className="mobile-logo">La casa de la calceta</div>
-          <div className="mobile-user">
-            {user ? (
-              <>
-                <div className="mobile-user-avatar">{/* avatar placeholder */}</div>
-                <div className="mobile-user-name">{user.nombre || user.name}</div>
-              </>
-            ) : (
-              <div className="mobile-user-guest">Bienvenido</div>
-            )}
-          </div>
-        </div>
-
-        <ul className="menu-list">
-          <li><button className="menu-link" onClick={() => go('/')}>Inicio</button></li>
-          <li><button className="menu-link" onClick={() => go('/orders')}>Pedidos</button></li>
-          <li><button className="menu-link" onClick={() => go('/profile')}>Mi perfil</button></li>
-        </ul>
-
-        {user && (
-          <div className="mobile-menu-footer">
-            <button className="logout-btn" onClick={handleLogout}>Cerrar sesión</button>
-          </div>
-        )}
+        <NavbarCliente />
       </nav>
     </div>
   );
