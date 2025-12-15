@@ -1,8 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { Routes, BrowserRouter, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "./index.css";
 import FormRegister from "./pages/RegisterPages.jsx";
+import HomePage from './pages/HomePage';
+import ProductDetail from './pages/ProductDetail';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from './contexts/CartContext';
 import LoginPage from "./pages/LoginPage.jsx";
 import ErrorPage404 from "./pages/Error404.jsx";
 import NavbarAdmin from "./components/NavbarAdmin/NavbarAdmin.jsx";
@@ -10,10 +14,11 @@ import NavbarCliente from "./components/NavbarCliente/NavbarCliente.jsx";
 import Error500 from "./pages/Error500.jsx";
 import VerMiPerfilPage from "./pages/VerMiPerfilPage.jsx";
 import EditarPerfil from "./pages/EditarPerfilPage.jsx";
-import { ToastContainer } from "react-toastify";
+import BillingPage from "./pages/BillingPage.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <CartProvider>
     <BrowserRouter>
       <Routes>
         <Route path="/register" element={<FormRegister />} />
@@ -24,10 +29,20 @@ createRoot(document.getElementById("root")).render(
         <Route path="/error-500" element={<Error500 />} />
         <Route path="/ver-mi-perfil" element={<VerMiPerfilPage />} />
         <Route path="/editar-perfil" element={<EditarPerfil />} />
+        <Route path="/facturacion" element={<BillingPage />} />
       </Routes>
     </BrowserRouter>
     <ToastContainer
-
-    />
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </CartProvider>
   </StrictMode>
 );
