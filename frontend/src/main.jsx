@@ -9,6 +9,8 @@ import LoginPage from "./pages/LoginPage.jsx";
 import ErrorPage404 from "./pages/Error404.jsx";
 import NavbarAdmin from "./components/NavbarAdmin/NavbarAdmin.jsx";
 import NavbarCliente from "./components/NavbarCliente/NavbarCliente.jsx";
+import GestionUsers from "./pages/GestionUsers.jsx";
+import GestionCat from "./pages/GestionCategorias.jsx";
 import Error500 from "./pages/Error500.jsx";
 import VerMiPerfilPage from "./pages/VerMiPerfilPage.jsx";
 import EditarPerfil from "./pages/EditarPerfilPage.jsx";
@@ -25,6 +27,8 @@ createRoot(document.getElementById("root")).render(
         <Route path="/login" element={<LoginPage />} />
         <Route path="/navbar-admin" element={<NavbarAdmin />} />
         <Route path="/navbar-cliente" element={<NavbarCliente />} />
+        <Route path="/gestion-users" element={<GestionUsers />} />
+        <Route path="/gestion-categorias" element={<GestionCat />} />
         <Route path="*" element={<ErrorPage404 />} />
         <Route path="/error-500" element={<Error500 />} />
         <Route path="/ver-mi-perfil" element={<VerMiPerfilPage />} />
