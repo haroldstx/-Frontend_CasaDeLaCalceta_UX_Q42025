@@ -1,0 +1,130 @@
+.search-bar {
+  width: 100%;
+  padding: 0; /* importante para el header */
+}
+
+/* Pill principal */
+.search-container {
+  width: 100%;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background-color: #fff;
+  border-radius: 999px;
+  padding: 0 14px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.25s ease;
+
+  overflow: hidden; /* evita recortes raros */
+}
+
+.search-container.focused {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Input */
+.search-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+
+  font-size: 13px;
+  color: #333;
+  min-width: 0;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+/* Botón X */
+.clear-button {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+
+  color: #777; /* los SVG usan currentColor */
+  padding: 0;
+}
+
+.clear-button:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Botón lupa */
+.search-button {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+
+  color: #333; /* los SVG usan currentColor */
+  padding: 0;
+}
+
+.search-button:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ===== FIX: SVG visibles y con tamaño ===== */
+.clear-button svg,
+.search-button svg {
+  display: block;
+  stroke: currentColor;
+  fill: none;
+}
+
+.clear-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.search-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-container {
+    height: 36px;
+  }
+
+  .search-input {
+    font-size: 12px;
+  }
+}
+/* Quitar outline y focus ring en botones del search */
+.clear-button,
+.search-button {
+  outline: none;
+}
+
+.clear-button:focus,
+.search-button:focus,
+.clear-button:focus-visible,
+.search-button:focus-visible {
+  outline: none;
+  box-shadow: none;
+}

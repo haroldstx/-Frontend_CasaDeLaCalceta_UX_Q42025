@@ -1,0 +1,140 @@
+.cart-icon-container {
+  position: relative;
+}
+
+.cart-button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.3s ease;
+  position: relative;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+}
+
+.cart-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.cart-button:hover {
+  background-color: #f0f0f0;
+  color: #667eea;
+  transform: scale(1.05);
+}
+
+.cart-button:active {
+  transform: scale(0.95);
+}
+
+.cart-svg {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+.cart-button:hover .cart-svg {
+  transform: translateY(-2px);
+}
+
+/* Badge del contador */
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff4757;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(255, 71, 87, 0.3);
+  animation: badge-pop 0.3s ease-out;
+}
+
+@keyframes badge-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animación cuando se agrega un producto */
+.cart-badge.updated {
+  animation: badge-pulse 0.6s ease-out;
+}
+
+@keyframes badge-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-button {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+  }
+
+  .cart-svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cart-badge {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    top: -6px;
+    right: -6px;
+  }
+}
+
+/* Overlay y wrapper para el dropdown */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+}
+
+.cart-dropdown-wrapper {
+  position: fixed;
+  top: 64px; /* ajustar según altura del header */
+  right: 16px;
+  z-index: 1000;
+}
+
+@media (max-width: 480px) {
+  .cart-dropdown-wrapper { right: 0; left: 0; top: 56px; }
+}

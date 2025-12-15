@@ -1,0 +1,131 @@
+.bill-page{
+  min-height: 100vh;
+  background: #fff;
+}
+
+/* Header rojo */
+.bill-header{
+  background: #B41112;
+  color: #fff;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+}
+
+.bill-header h1{
+  font-size: 18px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.bill-back{
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.bill-back:focus,
+.bill-back:focus-visible{
+  outline: none;
+  box-shadow: none;
+}
+
+.bill-content{
+  max-width: 420px; /* estilo "mobile card" como la imagen */
+  margin: 0 auto;
+  padding: 14px 16px 28px;
+}
+
+.bill-title{
+  text-align: center;
+  margin: 8px 0 14px 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.bill-section-label{
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.bill-items{
+  border-top: 1px solid #eee;
+}
+
+.bill-item{
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.bill-item-left{ min-width: 0; }
+.bill-item-name{ font-weight: 700; margin-bottom: 4px; }
+.bill-item-price{ color: #777; font-size: 12px; }
+
+.bill-item-right{
+  text-align: right;
+  white-space: nowrap;
+}
+
+.bill-item-qty{ font-weight: 700; font-size: 12px; }
+.bill-item-total{ font-weight: 700; font-size: 12px; margin-top: 4px; }
+
+.bill-summary{
+  margin-top: 22px;
+  border-top: 1px solid #eee;
+}
+
+.bill-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.bill-row-total{
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.bill-pay{
+  margin-top: 18px;
+  width: 100%;
+  height: 48px;
+  background: #B41112;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.bill-pay:focus,
+.bill-pay:focus-visible{
+  outline: none;
+  box-shadow: none;
+}
+.bill-row span:first-child{
+  text-align: left;
+}
+
+.bill-row span:last-child{
+  margin-left: auto;    
+  text-align: right;
+  font-variant-numeric: tabular-nums; 
+}
