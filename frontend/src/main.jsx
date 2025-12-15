@@ -14,7 +14,7 @@ import NavbarAdmin from "./components/NavbarAdmin/NavbarAdmin.jsx";
 import NavbarCliente from "./components/NavbarCliente/NavbarCliente.jsx";
 import Error500 from "./pages/Error500.jsx";
 import BillingPage from "./pages/BillingPage.jsx";
-
+import ReportsPage from "./pages/ReportsPage.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -30,6 +30,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="*" element={<ErrorPage404 />} />
           <Route path="/error-500" element={<Error500 />} />
           <Route path="/facturacion" element={<BillingPage />} />
+          <Route path="/reports" element={<ReportsPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer
