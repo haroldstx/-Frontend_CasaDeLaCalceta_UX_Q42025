@@ -1,0 +1,256 @@
+/* Estilos Globales para el Contenedor (Asegura que no se desborde) */
+.layout-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Área de Contenido Principal (Diseño de dos columnas) */
+.content-area {
+  display: flex;
+  gap: 20px;
+}
+
+.categories-block,
+.subcategories-block {
+  flex: 1; /* Distribuye el espacio equitativamente */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+
+/* Encabezados de Bloque */
+.block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.block-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Botones */
+.new-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.2s;
+}
+
+.primary-btn {
+  background: linear-gradient(
+    to right,
+    #ff8c00,
+    #ff6347
+  ); /* Degradado naranja/rojo */
+  color: white;
+}
+
+.secondary-btn {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.primary-btn:hover {
+  opacity: 0.9;
+}
+
+.secondary-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Listado de Tarjetas */
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Estilos Comunes de la Tarjeta */
+.card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: #ff8c00; /* Naranja */
+  margin-top: 5px;
+}
+
+.text-content {
+  flex-grow: 1;
+}
+
+.card-name {
+  margin: 0;
+  font-weight: 700;
+  color: #333;
+}
+
+.card-description {
+  margin: 2px 0 0 0;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* Tarjeta de Categoría Específica */
+.category-card {
+  cursor: pointer;
+  position: relative;
+  padding-right: 40px; /* Espacio para la flecha */
+}
+
+.category-card:hover {
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.4);
+}
+
+.category-card.selected {
+  border-left: 5px solid #ff8c00; /* Indicador de selección lateral */
+  padding-left: 10px; /* Ajusta el padding para la línea */
+  border-color: #ff8c00;
+}
+
+.arrow-indicator {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+.category-card .actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Tarjeta de Subcategoría Específica */
+.subcategory-card {
+  /* Estilo de la imagen */
+  border: 1px solid #ffd700; /* Borde amarillo más claro */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.subcategory-card .icon {
+  color: #ffd700; /* Amarillo */
+}
+
+.subcategory-card .card-content {
+  align-items: center;
+}
+
+.subcategory-card .actions-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto; /* Mueve las acciones a la derecha */
+}
+
+/* Botones de Acción (Editar/Eliminar) */
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.edit-btn {
+  color: #1e90ff; /* Azul */
+  border: 1px solid #1e90ff;
+}
+
+.delete-btn {
+  color: #dc3545; /* Rojo */
+  border: 1px solid #dc3545;
+}
+
+.delete-btn.category-card .actions .delete-btn {
+  /* Estilo del botón "Eliminar" en Categorías (en la imagen tiene un fondo) */
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Mensaje de No Hay Datos */
+.no-data {
+  text-align: center;
+  color: #999;
+  padding: 30px 0;
+  font-style: italic;
+}
+
+/* Adaptación para pantallas más pequeñas si es necesario */
+@media (max-width: 900px) {
+  .content-area {
+    flex-direction: column;
+  }
+}
+
+/* CONTENEDOR GENERAL */
+
+/* SIDEBAR */
+.sidebar-section {
+  width: 350px;
+  flex-shrink: 0;
+  transition: width 0.3s ease;
+}
+
+.sidebar-section.collapsed {
+  width: 80px;
+}
+
+/* MAIN */
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* HEADER */
+.header-wrapper {
+  flex-shrink: 0;
+}
+
+/* CONTENT */
+.content-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  background: #f6f7fb;
+}
+
+.content-area {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}

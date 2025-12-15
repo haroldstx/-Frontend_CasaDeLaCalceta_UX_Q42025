@@ -1,0 +1,83 @@
+.gestion-users-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar-section {
+  width: 350px;
+  flex-shrink: 0;
+  transition: width 0.3s ease;
+}
+
+.sidebar-section.collapsed {
+  width: 70px;
+}
+
+.users-page {
+  flex-grow: 1;
+  background-color: #f6f7fb;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+}
+
+.users-page.collapsed {
+  margin-left: 10px;
+}
+
+.users-table {
+  width: 95%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+.users-table thead {
+  background-color: #2f80ed;
+  color: white;
+}
+
+.users-table th,
+.users-table td {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.users-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status.active {
+  background-color: #d4f7dc;
+  color: #1b7a3a;
+}
+
+.status.disabled {
+  background-color: #f9c7c7;
+  color: #a10000;
+}
+
+.options {
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.active-page {
+  font-weight: bold;
+}
