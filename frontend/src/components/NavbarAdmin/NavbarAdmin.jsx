@@ -57,10 +57,12 @@ const Sidebar = ({ onToggle }) => {
             {isOpen && <span>Dashboard</span>}
           </div>
 
+          <Link to="/Reportes" style={{ textDecoration: 'none', color: 'inherit' }}>
           <div className={style["menu-item"]}>
             <img src={reportesIcon} alt="Reportes" />
             {isOpen && <span>Gestión Reportes</span>}
           </div>
+          </Link>
 
           <div className={style["menu-item"]}>
             <img src={inventarioIcon} alt="Inventario" />
