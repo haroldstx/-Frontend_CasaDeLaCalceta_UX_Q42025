@@ -3,8 +3,6 @@ import { createRoot } from "react-dom/client";
 import { ToastContainer } from "react-toastify";
 import "./index.css";
 import FormRegister from "./pages/RegisterPages.jsx";
-import HomePage from './pages/HomePage';
-import ProductDetail from './pages/ProductDetail';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from './contexts/CartContext';
 import LoginPage from "./pages/LoginPage.jsx";
@@ -15,6 +13,8 @@ import Error500 from "./pages/Error500.jsx";
 import VerMiPerfilPage from "./pages/VerMiPerfilPage.jsx";
 import EditarPerfil from "./pages/EditarPerfilPage.jsx";
 import BillingPage from "./pages/BillingPage.jsx";
+import ReportsPage from "./pages/ReportsPage.jsx";
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -30,6 +30,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/ver-mi-perfil" element={<VerMiPerfilPage />} />
         <Route path="/editar-perfil" element={<EditarPerfil />} />
         <Route path="/facturacion" element={<BillingPage />} />
+        <Route path="/reportes" element={<ReportsPage />} />
       </Routes>
     </BrowserRouter>
     <ToastContainer
