@@ -1,0 +1,250 @@
+/* Contenedor principal */
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Sidebar secundario */
+.secondarySidebar {
+  width: 300px;
+  background-color: #f8f8f8;
+  padding: 30px 20px;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sidebarTitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1b1b1b;
+}
+
+.sidebarButton {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.sidebarButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sidebarButton.active {
+  background-color: #e8e8e8;
+}
+
+.buttonIcon {
+  width: 25px;
+  height: 25px;
+}
+
+.buttonLabel {
+  font-size: 22px;
+  font-weight: 500;
+  color: #848484;
+}
+
+.sidebarButton.active .buttonLabel {
+  color: #1b1b1b;
+  font-weight: 700;
+}
+
+/* Contenido principal */
+.mainContent {
+  flex: 1;
+  padding: 40px 60px;
+  overflow-y: auto;
+}
+
+.notificationButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 2%;
+  text-align: right;
+}
+
+.notificationButton:hover {
+  opacity: 0.5;
+}
+
+
+.notificationButton svg {
+  width: 4px;
+  height: 4px;
+}
+
+.header {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  font-size: 45px;
+  font-weight: 600;
+  color: #000000;
+}
+
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 30px;
+  max-width: 700px;
+}
+
+.form input{
+    padding: 10px;
+    border: 10px solid #858585;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #ffffff;
+
+    
+}
+
+.cancelButton,
+.saveButton {
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.cancelButton {
+  background-color: #f0f0f0;
+  color: #1b1b1b;
+}
+
+.cancelButton:hover {
+  background-color: #e0e0e0;
+}
+
+.saveButton {
+  background-color: #AD1407;
+  color: #ffffff;
+}
+
+.saveButton:hover {
+  background-color: #333333;
+}
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Campos que ocupan TODA la fila */
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.formField label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1b1b1b;
+}
+
+.formField input {
+  padding: 12px;
+  border: 2px solid #858585;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #1b1b1b;
+}
+
+/* Input con icono */
+.inputWithIcon {
+  position: relative;
+}
+
+.inputWithIcon input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.validIcon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;      /* controla tamaño */
+  height: 20px;
+  pointer-events: none;
+}
+
+/* Botones */
+.formButtons {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .secondarySidebar {
+    width: 220px;
+    padding: 20px 15px;
+  }
+
+  .sidebarTitle {
+    font-size: 22px;
+  }
+
+  .buttonLabel {
+    font-size: 16px;
+  }
+
+  .mainContent {
+    padding: 30px 40px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .fieldLabel {
+    font-size: 20px;
+  }
+
+  .fieldText {
+    font-size: 18px;
+  }
+  .formButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+
+
+
+}
