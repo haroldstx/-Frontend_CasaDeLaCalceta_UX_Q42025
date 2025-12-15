@@ -1,0 +1,156 @@
+/* Layout base */
+.orders-layout{
+  display: flex;
+  min-height: 100vh;
+  background: #f3eef8;
+}
+
+.orders-sidebar{
+  width: 280px;
+  flex: 0 0 280px;
+  display: flex;
+}
+
+/* CONTENIDO */
+.orders-content{
+  flex: 1;
+  padding: 22px 24px;
+  display: auto;
+}
+
+/* Lista */
+.orders-list{
+  display: auto;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* Card */
+.order-card{
+  background: #fff;
+  border: 1px solid #efe7f6;
+  border-radius: 12px;
+  padding: 14px 16px;
+
+  justify-content: right;
+
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+
+.order-row-top{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-id{
+  font-size: 12px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.badge{
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 15px;
+  border-radius: 999px;
+  line-height: 1;
+}
+.badge-pending{ background: #ff7a00; color: #fff; }
+.badge-ok{ background: #16a34a; color: #fff; }
+
+.order-row-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.order-date{
+  margin-top: 6px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* parte de abajo (thumb + método) */
+.order-bottom{
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.order-thumb{
+  width: 54px;
+  height: 54px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f3f4f6;
+  flex: 0 0 54px;
+}
+
+.order-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.order-pay{
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* derecha: precio + botón */
+.order-right{
+  display: auto;
+  align-items: auto;
+  gap: 10px;
+  min-width: 170px;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.order-price{
+  font-weight: 900;
+  color: #7c3aed;
+  font-size: 13px;
+  text-align: right;
+}
+
+.order-items{
+  font-size: 11px;
+  color: #9ca3af;
+  text-align: right;
+}
+
+/* Botón: IMPORTANTÍSIMO para que no parezca input */
+.btn-details{
+  appearance: none;
+
+  display: auto;
+  align-items: auto;
+  gap: 8px;
+
+  padding: 8px 12px;
+  border-radius: 10px;
+
+  border: 1px solid #e5e7eb;
+  background: #fff;
+
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 12px;
+  color: #111827;
+
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.btn-details:hover{
+  background: #f9fafb;
+}
+
