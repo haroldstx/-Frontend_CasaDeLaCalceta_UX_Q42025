@@ -4,13 +4,11 @@ import { ToastContainer } from "react-toastify";
 import "./index.css";
 import FormRegister from "./pages/RegisterPages.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./contexts/CartContext";
+import { CartProvider } from './contexts/CartContext';
 import LoginPage from "./pages/LoginPage.jsx";
 import ErrorPage404 from "./pages/Error404.jsx";
 import NavbarAdmin from "./components/NavbarAdmin/NavbarAdmin.jsx";
 import NavbarCliente from "./components/NavbarCliente/NavbarCliente.jsx";
-import GestionUsers from "./pages/GestionUsers.jsx";
-import GestionCat from "./pages/GestionCategorias.jsx";
 import Error500 from "./pages/Error500.jsx";
 import VerMiPerfilPage from "./pages/VerMiPerfilPage.jsx";
 import EditarPerfil from "./pages/EditarPerfilPage.jsx";
@@ -19,6 +17,8 @@ import ReportsPage from "./pages/ReportsPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import DashboardPage from "./pages/Dashboard.jsx";
 import OrdersPage from "./pages/OrdersPage.jsx";
+import AdminOrdersPage from "./pages/AdminOrdersPage.jsx";
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -40,6 +40,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/reportes" element={<ReportsPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/Pedidos" element={<OrdersPage />} />
+          <Route path="/Pedidos-admin" element={<AdminOrdersPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer

@@ -25,7 +25,7 @@ const Header = ({ onSearch, onClear }) => {
             <SearchBar 
               onSearch={onSearch}
               onClear={onClear}
-              placeholder="Buscar calcetines..."
+              placeholder="Buscar..."
             />
           </div>
         </div>

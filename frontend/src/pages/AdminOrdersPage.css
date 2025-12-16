@@ -1,0 +1,77 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 20px;
+  background: #c5ce16 #f0f0f0;
+  margin-left: 280px; 
+  width: 100%;
+}
+
+.orders-table {
+  display: auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 12px;
+    width: 100%;
+}
+
+.order-row {
+  display: auto;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  width: 100%;
+}
+
+.order-date {
+  font-size: 13px;
+  color: #666;
+}
+
+.order-total {
+  font-weight: bold;
+  color: purple;
+}
+
+.btn-view {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: rgb(152, 4, 4);
+  cursor: pointer;
+  flex-wrap: nowrap;
+}
+.btn-view:hover {
+  background: #f3f3f3;
+}
+
+/* Estados simples */
+.badge {
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+    text-transform: capitalize;
+    flex-wrap: nowrap;
+    display: right;
+}
+
+.pendiente {
+  background: orange;
+  color: white;
+}
+.confirmado {
+  background: green;
+  color: white;
+}
+.enrevisión {
+  background: gold;
+  color: black;
+}
