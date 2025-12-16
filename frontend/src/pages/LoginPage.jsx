@@ -6,7 +6,7 @@ import logo from "../assets/logo.png";
 import emailIcon from "../assets/email.png";
 import passwordIcon from "../assets/lock.png";
 import { Link } from "react-router-dom";
-import { LoginUser } from "../middleware/api/Users.jsx";
+import { LoginUser, CheckRolUser } from "../middleware/api/Users.jsx";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
@@ -28,9 +28,13 @@ const LoginPage = () => {
     e.preventDefault();
     const response = await LoginUser(credentials.email, credentials.password);
     console.log(response);
-    if (response.user.nombre === "Administrador") {
+
+    const roleResponse = await CheckRolUser(credentials.email);
+
+    console.log("esto es del rolResponse: ", roleResponse);
+    if (roleResponse.includes("administrador")) {
       navigate("/dashboard");
-    } else {
+    } else if (roleResponse.includes("cliente")) {
       navigate("/");
     }
   };

@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "./index.css";
 import FormRegister from "./pages/RegisterPages.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from './contexts/CartContext';
+import { CartProvider } from "./contexts/CartContext";
 import LoginPage from "./pages/LoginPage.jsx";
 import ErrorPage404 from "./pages/Error404.jsx";
 import NavbarAdmin from "./components/NavbarAdmin/NavbarAdmin.jsx";
@@ -22,6 +22,8 @@ import PaymentPage from "./pages/PaymentPage.jsx";
 
 
 
+import GestionUsers from "./pages/GestionUsers.jsx";
+import GestionCat from "./pages/GestionCategorias.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

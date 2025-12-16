@@ -6,13 +6,17 @@ import style from "../components/RegistroUser/InputField.module.css";
 import Establecimiento from "../assets/site.jpeg";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { RegisterUser } from "../middleware/api/Users.jsx";
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
   // Estado para manejar los datos del formulario (simulando un control de estado)
   const [formData, setFormData] = useState({
-    nombreCompleto: "",
-    correoElectronico: "",
-    contrasena: "",
+    nombre_usuario: "",
+    correo: "",
+    password: "",
+    nombre: "",
     telefono: "",
     direccion: "",
   });
@@ -22,6 +26,17 @@ const RegisterPage = () => {
       ...formData,
       [e.target.id]: e.target.value,
     });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // Aquí puedes agregar la lógica para enviar los datos al servidor
+    const response = await RegisterUser(formData);
+
+    console.log(response);
+    if (response) {
+      navigate("/Login");
+    }
   };
 
   return (
@@ -47,46 +62,52 @@ const RegisterPage = () => {
         </div>
 
         {/* Cuerpo del Formulario */}
-        <form className={style["registrationForm"]} onSubmit={{}}>
-          <label htmlFor="nombreCompleto" className={style["input-label"]}>
-            Nombre completo
-          </label>
+        <form className={style["registrationForm"]} onSubmit={handleSubmit}>
+          <label className={style["input-label"]}>Nombre De Usuario</label>
           <InputField
-            label="nombreCompleto"
+            label="nombre_usuario"
             type="text"
-            placeholder="Tu nombre"
+            name="nombre_usuario"
+            placeholder="Suarez_10"
             tag="Register"
-            value={formData.nombreCompleto}
+            value={formData.nombre_usuario}
             onChange={handleChange}
           />
 
-          <label htmlFor="correoElectronico" className={style["input-label"]}>
-            Correo electrónico
-          </label>
+          <label className={style["input-label"]}>Correo electrónico</label>
           <InputField
-            label="correoElectronico"
+            label="correo"
             type="email"
+            name="correo"
             placeholder="ej. laRacha@email.com"
             tag="Register"
-            value={formData.correoElectronico}
+            value={formData.correo}
             onChange={handleChange}
           />
 
-          <label htmlFor="contrasena" className={style["input-label"]}>
-            Contraseña
-          </label>
+          <label className={style["input-label"]}>Contraseña</label>
           <InputField
-            label="contrasena"
+            label="password"
             type="password"
+            name="password"
             placeholder="......"
             tag="Register"
-            value={formData.contrasena}
+            value={formData.password}
             onChange={handleChange}
           />
 
-          <label htmlFor="telefono" className={style["input-label"]}>
-            Teléfono
-          </label>
+          <label className={style["input-label"]}>Nombre De la Persona</label>
+          <InputField
+            label="nombre"
+            type="text"
+            name="nombre"
+            placeholder="Harold Diaz"
+            tag="Register"
+            value={formData.nombre}
+            onChange={handleChange}
+          />
+
+          <label className={style["input-label"]}>Teléfono</label>
           <InputField
             label="telefono"
             type="tel"
@@ -96,9 +117,7 @@ const RegisterPage = () => {
             onChange={handleChange}
           />
 
-          <label htmlFor="direccion" className={style["input-label"]}>
-            Dirección
-          </label>
+          <label className={style["input-label"]}>Dirección</label>
           <InputField
             label="direccion"
             type="text"
@@ -109,15 +128,7 @@ const RegisterPage = () => {
           />
 
           <button type="submit" className={style["login-button"]}>
-            <Link
-              to="/login"
-              style={{
-                color: "white",
-                fontWeight: "bold",
-              }}
-            >
-              Registrate e Iniciar Sesión
-            </Link>
+            Registrate e Iniciar Sesión
           </button>
         </form>
       </div>

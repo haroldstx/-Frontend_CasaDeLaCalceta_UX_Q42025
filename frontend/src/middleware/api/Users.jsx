@@ -30,3 +30,49 @@ export const LoginUser = async (correo, password) => {
     }
   }
 };
+
+export const CheckRolUser = async (correo) => {
+  try {
+    const response = await axios.post(`${USERS_ENDPOINT}/check-role`, {
+      correo,
+    });
+
+    if (response.status === 200) {
+      return response.data;
+    }
+  } catch (error) {
+    if (error.response) {
+      if (error.response.status === 404) {
+        toast.error("Usuario no encontrado");
+      } else if (error.response.status === 500) {
+        toast.error("Error del servidor, intente más tarde");
+      }
+    } else {
+      throw new Error("Ocurrió un error inesperado al procesar la solicitud.");
+    }
+  }
+};
+
+export const RegisterUser = async (userData) => {
+  try {
+    const response = await axios.post(`${USERS_ENDPOINT}/`, userData);
+    if (response.status === 201) {
+      toast.success("Registro exitoso");
+      return response.data;
+    } else {
+      toast.error("Error en el registro");
+    }
+  } catch (error) {
+    if (error.response) {
+      if (error.response.status === 400) {
+        toast.error("Datos inválidos para el registro");
+      } else if (error.response.status === 409) {
+        toast.error("El correo ya está registrado");
+      } else {
+        toast.error("Error del servidor, intente más tarde");
+      }
+    } else {
+      throw new Error("Ocurrió un error inesperado al procesar la solicitud.");
+    }
+  }
+};
