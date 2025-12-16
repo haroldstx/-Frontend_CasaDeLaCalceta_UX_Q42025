@@ -18,6 +18,9 @@ import HomePage from "./pages/HomePage.jsx";
 import DashboardPage from "./pages/Dashboard.jsx";
 import OrdersPage from "./pages/OrdersPage.jsx";
 import AdminOrdersPage from "./pages/AdminOrdersPage.jsx";
+import PaymentPage from "./pages/PaymentPage.jsx";
+
+
 
 
 createRoot(document.getElementById("root")).render(
@@ -30,8 +33,6 @@ createRoot(document.getElementById("root")).render(
           <Route path="/login" element={<LoginPage />} />
           <Route path="/navbar-admin" element={<NavbarAdmin />} />
           <Route path="/navbar-cliente" element={<NavbarCliente />} />
-          <Route path="/gestion-users" element={<GestionUsers />} />
-          <Route path="/gestion-categorias" element={<GestionCat />} />
           <Route path="*" element={<ErrorPage404 />} />
           <Route path="/error-500" element={<Error500 />} />
           <Route path="/ver-mi-perfil" element={<VerMiPerfilPage />} />
@@ -41,6 +42,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/Pedidos" element={<OrdersPage />} />
           <Route path="/Pedidos-admin" element={<AdminOrdersPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer
