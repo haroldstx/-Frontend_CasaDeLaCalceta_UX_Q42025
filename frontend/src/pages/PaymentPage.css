@@ -3,7 +3,7 @@
   background: #fff;
 }
 
-/* Header naranja (similar estructura al Billing header, pero naranja) :contentReference[oaicite:3]{index=3} */
+
 .pay-header{
   background: #ff7a00;
   color: #fff;
@@ -34,10 +34,15 @@
   border-radius: 10px;
 }
 .pay-radio-group{
-  margin-top: -5px;
-  gap: -50px;
   display: flex;
+  align-items: center;
+  gap: 28px;         
+  margin-top: 6px;
 }
+.pay-radio span{
+  white-space: nowrap;
+}
+
 
 .pay-back:focus,
 .pay-back:focus-visible{
@@ -75,10 +80,15 @@
 .pay-radio{
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-right: 14px;
+  gap: 6px;
+  margin: 0;   
   color: #111;
   font-weight: 600;
+  width: auto;
+}
+
+.pay-radio input{
+  margin: 0;
 }
 
 .bank-card{
@@ -204,14 +214,20 @@
 }
 
 .sum-row{
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto; 
+  align-items: center;
+  column-gap: 40px;            
   padding: 14px 0;
   border-bottom: 1px solid #eee;
   font-size: 18px;
   color: #111;
 }
-
+.sum-row span:last-child{
+  text-align: right;
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
 .sum-row-strong{
   font-weight: 900;
   font-size: 22px;
@@ -222,7 +238,7 @@
     width: 50%;
   border: none;
   border-radius: 8px;
-  background: #c0392b; /* rojo */
+  background: #c0392b; 
   color: #fff;
   font-weight: 700;
   cursor: pointer;

@@ -18,7 +18,6 @@ export default function PaymentPage() {
   const [metodo, setMetodo] = useState("transferencia"); // transferencia | tienda
   const [comprobante, setComprobante] = useState(null);
 
-  // Reutiliza la misma lógica del BillingPage (subtotal/isv/total). :contentReference[oaicite:1]{index=1}
   const subtotal = useMemo(() => {
     return cartItems.reduce((sum, item) => {
       const price = item.precio ?? item.price ?? 0;
@@ -43,45 +42,45 @@ export default function PaymentPage() {
         <section className="pay-left">
           <h2 className="pay-title">Pago</h2>
 
-          <div className="pay-section">
             <div className="pay-label">Método de pago:</div>
 
-            <label className="pay-radio">
-              <input
-                type="radio"
-                name="metodo"
-                checked={metodo === "transferencia"}
-                onChange={() => setMetodo("transferencia")}
-              />
-              <span>Transferencia</span>
-            </label>
+            <div className="pay-radio-group">
+              <label className="pay-radio">
+            <input
+          type="radio"
+      name="metodo"
+      checked={metodo === "transferencia"}
+      onChange={() => setMetodo("transferencia")}
+    />
+    <span>Transferencia</span>
+  </label>
 
-            <label className="pay-radio">
-              <input
-                type="radio"
-                name="metodo"
-                checked={metodo === "tienda"}
-                onChange={() => setMetodo("tienda")}
-              />
-              <span>En tienda</span>
-            </label>
-          </div>
+        <label className="pay-radio">
+    <input
+      type="radio"
+      name="metodo"
+      checked={metodo === "tienda"}
+      onChange={() => setMetodo("tienda")}
+    />
+    <span>En tienda</span>
+  </label>
+</div>
 
           {metodo === "transferencia" && (
             <>
               <div className="bank-card">
                 <img className="bank-logo" src={BACIcon} alt="BAC" />
                 <div className="bank-info">
-                  <div className="bank-title">Número de cuenta de banco</div>
-                  <div className="bank-sub">Nombre del propietario de la cuenta</div>
+                  <div className="bank-title">748567720</div>
+                  <div className="bank-sub">Julia Martinez Sandoval</div>
                 </div>
               </div>
 
               <div className="bank-card">
                 <img className="bank-logo" src={FICOHSA} alt="Ficohsa" />
                 <div className="bank-info">
-                  <div className="bank-title">Número de cuenta de banco</div>
-                  <div className="bank-sub">Nombre del propietario de la cuenta</div>
+                  <div className="bank-title">22655786201</div>
+                  <div className="bank-sub">Julia Martinez Sandoval</div>
                 </div>
               </div>
 
@@ -103,13 +102,13 @@ export default function PaymentPage() {
                 <div className="upload-help">
                   {comprobante ? `Archivo: ${comprobante.name}` : "Solamente se aceptan archivos en formato .png, .jpeg, .jpg, .gif."}
                 </div>
-                <button type="button" className="pay-btn"
-                    onClick={() => alert("Pago realizado con transferencia.")}>
-                      Pagar
-                </button>
-              </div>
-            </>
+              </div>             
+            </> 
           )}
+          <button type="button" className="pay-btn" disabled={metodo === "transferencia" && !comprobante}
+                    onClick={() => alert("Pedido realizado con éxito!")}>
+                      Realizar pedido
+                </button>
         </section>
 
         {/* DERECHA */}
