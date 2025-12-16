@@ -45,14 +45,14 @@ const Sidebar = () => {
 
         {/* Opciones */}
         <div className={style["sidebar-menu"]}>
-          <Link to="/Inicio" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
             <div className={style["menu-item"]}>
               <img src={homeIcon} alt="Home" />
               {isOpen && <span>Inicio</span>}
             </div>
           </Link>
 
-          <Link to="/Inicio" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
             <div className={style["menu-item"]}>
               <img src={productosIcon} alt="Productos" />
               {isOpen && <span>Productos</span>}

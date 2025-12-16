@@ -1,0 +1,260 @@
+.pay-page{
+  min-height: 100vh;
+  background: #fff;
+}
+
+
+.pay-header{
+  background: #ff7a00;
+  color: #fff;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+}
+
+.pay-header h1{
+  font-size: 18px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.pay-back{
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.pay-radio-group{
+  display: flex;
+  align-items: center;
+  gap: 28px;         
+  margin-top: 6px;
+}
+.pay-radio span{
+  white-space: nowrap;
+}
+
+
+.pay-back:focus,
+.pay-back:focus-visible{
+  outline: none;
+  box-shadow: none;
+}
+
+.pay-content{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 22px 34px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.pay-title{
+  margin: 0 0 14px;
+  font-size: 44px;
+  font-weight: 900;
+  color: #111;
+}
+
+.pay-section{
+  margin-top: 12px;
+}
+
+.pay-label{
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.pay-radio{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;   
+  color: #111;
+  font-weight: 600;
+  width: auto;
+}
+
+.pay-radio input{
+  margin: 0;
+}
+
+.bank-card{
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bank-logo{
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.bank-title{
+  font-weight: 800;
+  color: #111;
+}
+
+.bank-sub{
+  margin-top: 4px;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+.pay-upload{
+  margin-top: 18px;
+}
+
+.upload-text{
+  color: #111;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.upload-input{
+  display: none;
+}
+
+.upload-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  min-width: 130px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background: #6b7280;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  user-select: none;
+  width: 30%;
+}
+
+.upload-help{
+  margin-top: 10px;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+/* ORDER SUMMARY */
+.sum-title{
+  margin: 8px 0 14px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #111;
+}
+
+.sum-block{
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+
+.sum-label{
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.sum-item{
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.sum-item-name{
+  font-weight: 800;
+  color: #111;
+}
+
+.sum-item-price{
+  margin-top: 10px;
+  color: #777;
+  font-size: 12px;
+  display: auto
+}
+
+.sum-item-right{
+  text-align: right;
+  white-space: nowrap;
+}
+
+.sum-item-qty,
+.sum-item-total{
+  font-weight: 900;
+  font-size: 12px;
+}
+
+.sum-item-total{
+  margin-top: 4px;
+  
+}
+
+.sum-totals{
+    display: auto;
+  margin-top: 55px;
+  flex-wrap: nowrap;
+  border-top: 1px solid #eee;
+}
+
+.sum-row{
+  display: grid;
+  grid-template-columns: 1fr auto; 
+  align-items: center;
+  column-gap: 40px;            
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 18px;
+  color: #111;
+}
+.sum-row span:last-child{
+  text-align: right;
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+.sum-row-strong{
+  font-weight: 900;
+  font-size: 22px;
+}
+.pay-btn{
+  margin-top: 18px;
+  height: 52px;
+    width: 50%;
+  border: none;
+  border-radius: 8px;
+  background: #c0392b; 
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pay-btn:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+@media (max-width: 900px){
+  .pay-content{
+    grid-template-columns: 1fr;
+  }
+  .pay-title{
+    font-size: 36px;
+  }
+}
