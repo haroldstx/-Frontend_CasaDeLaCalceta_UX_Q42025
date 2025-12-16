@@ -45,20 +45,26 @@ const Sidebar = () => {
 
         {/* Opciones */}
         <div className={style["sidebar-menu"]}>
-          <div className={style["menu-item"]}>
-            <img src={homeIcon} alt="Home" />
-            {isOpen && <span>Home</span>}
-          </div>
+          <Link to="/Inicio" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className={style["menu-item"]}>
+              <img src={homeIcon} alt="Home" />
+              {isOpen && <span>Inicio</span>}
+            </div>
+          </Link>
 
-          <div className={style["menu-item"]}>
-            <img src={productosIcon} alt="Productos" />
-            {isOpen && <span>Productos</span>}
-          </div>
+          <Link to="/Inicio" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className={style["menu-item"]}>
+              <img src={productosIcon} alt="Productos" />
+              {isOpen && <span>Productos</span>}
+            </div>
+          </Link>
 
-          <div className={style["menu-item"]}>
-            <img src={pedidosIcon} alt="Pedidos" />
-            {isOpen && <span>Pedidos</span>}
-          </div>
+          <Link to="/Pedidos" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className={style["menu-item"]}>
+              <img src={pedidosIcon} alt="Pedidos" />
+              {isOpen && <span>Pedidos</span>}
+            </div>
+          </Link>
 
           <Link to="/ver-mi-perfil" style={{ textDecoration: 'none', color: 'inherit' }}>
             <div className={style["menu-item"]}>

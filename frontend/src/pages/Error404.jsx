@@ -14,9 +14,13 @@ const ErrorPage404 = () => {
           Lo sentimos, la página que estás buscando no existe o ha sido movida.
           Verifica la URL o regresa a la página de inicio.
         </p>
-        <Link to="/Login" className={style["back-button"]}>
+        <button
+          className={style["back-button"]}
+          onClick={() => window.history.back()}
+          type="button"
+        >
           Volver atrás
-        </Link>
+        </button>
       </div>
 
       <div className={style["error-illustration-section"]}>

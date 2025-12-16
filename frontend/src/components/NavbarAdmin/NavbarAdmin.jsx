@@ -13,11 +13,15 @@ import logoutIcon from "../../assets/back.png";
 
 import { Link } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ onToggle }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+    const newIsOpen = !isOpen;
+    setIsOpen(newIsOpen);
+    if (onToggle) {
+      onToggle(newIsOpen);
+    }
   };
   return (
     <>
@@ -47,31 +51,49 @@ const Sidebar = () => {
         </div>
 
         {/* Opciones */}
-        <div className={style["sidebar-menu"]}>
-          <div className={style["menu-item"]}>
-            <img src={dashboardIcon} alt="Dashboard" />
-            {isOpen && <span>Dashboard</span>}
-          </div>
 
+        <div className={style["sidebar-menu"]}>
+          <Link
+            to="/dashboard"
+            style={{ textDecoration: "none", color: "#ffffffff" }}
+          >
+            <div className={style["menu-item"]}>
+              <img src={dashboardIcon} alt="Dashboard" />
+              {isOpen && <span>Dashboard</span>}
+            </div>
+          </Link>
+               
+          <Link to="/Reportes" style={{ textDecoration: 'none', color: '#ffffffff' }}>
           <div className={style["menu-item"]}>
             <img src={reportesIcon} alt="Reportes" />
             {isOpen && <span>Gestión Reportes</span>}
           </div>
+          </Link>
 
           <div className={style["menu-item"]}>
             <img src={inventarioIcon} alt="Inventario" />
             {isOpen && <span>Gestión Inventario</span>}
           </div>
 
-          <div className={style["menu-item"]}>
-            <img src={categoriasIcon} alt="Categorías" />
-            {isOpen && <span>Gestión de Categorías</span>}
-          </div>
+          <Link
+            to="/gestion-categorias"
+            style={{ textDecoration: "none", color: "#ffffffff" }}
+          >
+            <div className={style["menu-item"]}>
+              <img src={categoriasIcon} alt="Categorías" />
+              {isOpen && <span>Gestión de Categorías</span>}
+            </div>
+          </Link>
 
-          <div className={style["menu-item"]}>
-            <img src={usuariosIcon} alt="Usuarios" />
-            {isOpen && <span>Gestión de Usuarios</span>}
-          </div>
+          <Link
+            to="/gestion-users"
+            style={{ textDecoration: "none", color: "#ffffffff" }}
+          >
+            <div className={style["menu-item"]}>
+              <img src={usuariosIcon} alt="Usuarios" />
+              {isOpen && <span>Gestión de Usuarios</span>}
+            </div>
+          </Link>
 
           <div className={style["menu-item"]}>
             <img src={puntoVentaIcon} alt="Punto de venta" />
