@@ -4,29 +4,24 @@ import { ToastContainer } from "react-toastify";
 import "./index.css";
 import FormRegister from "./pages/RegisterPages.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./contexts/CartContext";
+import { CartProvider } from './contexts/CartContext';
 import LoginPage from "./pages/LoginPage.jsx";
 import ErrorPage404 from "./pages/Error404.jsx";
 import NavbarAdmin from "./components/NavbarAdmin/NavbarAdmin.jsx";
 import NavbarCliente from "./components/NavbarCliente/NavbarCliente.jsx";
-import GestionUsers from "./pages/GestionUsers.jsx";
-import GestionCat from "./pages/GestionCategorias.jsx";
 import Error500 from "./pages/Error500.jsx";
 import VerMiPerfilPage from "./pages/VerMiPerfilPage.jsx";
 import EditarPerfil from "./pages/EditarPerfilPage.jsx";
 import BillingPage from "./pages/BillingPage.jsx";
 import ReportsPage from "./pages/ReportsPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
-<<<<<<< HEAD
 import OrdersPage from "./pages/OrdersPage.jsx";
+import AdminOrdersPage from "./pages/AdminOrdersPage.jsx";
 
-=======
->>>>>>> cd41f6c4d06e2cecf96eebaea4f67e3ce1507a7d
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <CartProvider>
-<<<<<<< HEAD
     <BrowserRouter>
       <Routes>
         <Route path="/register" element={<FormRegister />} />
@@ -41,29 +36,10 @@ createRoot(document.getElementById("root")).render(
         <Route path="/reportes" element={<ReportsPage />} />
         <Route path="/Inicio" element={<HomePage />} />
         <Route path="/Pedidos" element={<OrdersPage />} />
+        <Route path="/Pedidos-admin" element={<AdminOrdersPage />} />
       </Routes>
     </BrowserRouter>
     <ToastContainer
-=======
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<FormRegister />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/navbar-admin" element={<NavbarAdmin />} />
-          <Route path="/navbar-cliente" element={<NavbarCliente />} />
-          <Route path="/gestion-users" element={<GestionUsers />} />
-          <Route path="/gestion-categorias" element={<GestionCat />} />
-          <Route path="*" element={<ErrorPage404 />} />
-          <Route path="/error-500" element={<Error500 />} />
-          <Route path="/ver-mi-perfil" element={<VerMiPerfilPage />} />
-          <Route path="/editar-perfil" element={<EditarPerfil />} />
-          <Route path="/facturacion" element={<BillingPage />} />
-          <Route path="/reportes" element={<ReportsPage />} />
-        </Routes>
-      </BrowserRouter>
-      <ToastContainer
->>>>>>> cd41f6c4d06e2cecf96eebaea4f67e3ce1507a7d
         position="bottom-right"
         autoClose={3000}
         hideProgressBar={false}
