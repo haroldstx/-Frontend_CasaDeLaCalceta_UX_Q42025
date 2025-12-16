@@ -73,8 +73,8 @@ export default function BillingPage() {
           </div>
         </div>
 
-        <button className="bill-pay">
-          Proceder a pagar
+        <button className="bill-pay" onClick={() => navigate("/payment")}>
+            Proceder a pagar
         </button>
       </main>
     </div>
