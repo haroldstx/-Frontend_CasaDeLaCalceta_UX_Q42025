@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../components/VerMiPerfil/VerMiPerfil.module.css";
 import NavbarCliente from "../components/NavbarCliente/NavbarCliente";
-import { getUserProfile } from "../api/user";
+import { getUserProfile } from "../middleware/user";
 import profileIcon from "../assets/icons/profile_icon.svg";
 import lockIcon from "../assets/icons/lock_icon_grey.svg";
 import editIcon from "../assets/icons/edit_grey.svg";
@@ -77,7 +77,11 @@ const VerMiPerfilPage = () => {
             className={styles.notificationButton}
             onClick={handleEditProfile}
           >
-            <img src={notificationIcon} alt="Notificaciones" className={styles.buttonIcon} />
+            <img
+              src={notificationIcon}
+              alt="Notificaciones"
+              className={styles.buttonIcon}
+            />
           </button>
         </div>
 
