@@ -114,7 +114,7 @@ const CategorySubcategoryManager = () => {
       >
         {/* HEADER */}
         <div className={style["header-wrapper"]}>
-          <Header title="Gestión de Categorías" />
+          <Header title="Gestión de Categorías y Subcategorías" />
         </div>
 
         <div className={style["content-wrapper"]}>

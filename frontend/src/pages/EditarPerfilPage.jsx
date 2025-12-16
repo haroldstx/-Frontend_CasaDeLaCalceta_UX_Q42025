@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../components/EditarPerfil/editarPerfil.module.css";
 import NavbarCliente from "../components/NavbarCliente/NavbarCliente";
-import { getUserProfile } from "../api/user";
+import { getUserProfile } from "../middleware/user.js";
 import profileIcon from "../assets/icons/profile_icon_grey.svg";
 import lockIcon from "../assets/icons/lock_icon_grey.svg";
 import editIcon from "../assets/icons/Edit.svg";
