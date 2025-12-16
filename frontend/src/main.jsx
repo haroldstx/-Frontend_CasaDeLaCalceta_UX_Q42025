@@ -15,6 +15,7 @@ import Error500 from "./pages/Error500.jsx";
 import VerMiPerfilPage from "./pages/VerMiPerfilPage.jsx";
 import EditarPerfil from "./pages/EditarPerfilPage.jsx";
 import BillingPage from "./pages/BillingPage.jsx";
+import CambiarPassword from "./pages/CambiarPassword.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -30,6 +31,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/ver-mi-perfil" element={<VerMiPerfilPage />} />
         <Route path="/editar-perfil" element={<EditarPerfil />} />
         <Route path="/facturacion" element={<BillingPage />} />
+        <Route path="/cambiar-contrasena" element={<CambiarPassword />} />
       </Routes>
     </BrowserRouter>
     <ToastContainer
