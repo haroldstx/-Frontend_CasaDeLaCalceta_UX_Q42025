@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import style from "../NavbarAdmin/Navbaradmin.module.css";
 import logo from "../../assets/logo.png";
@@ -12,6 +12,13 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -37,7 +44,10 @@ const Sidebar = () => {
           <img src={userProfile} alt="User" className={style["user-img"]} />
           <div className={style["user-info"]}>
             {isOpen && (
-              <p className={style["user-name"]}>Diego Ferrera Matute</p>
+              <p className={style["user-name"]}>
+  {user ? user.nombre_usuario : "Cliente"}
+</p>
+
             )}
             {isOpen && <p className="user-role">Cliente</p>}
           </div>

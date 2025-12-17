@@ -23,6 +23,8 @@ const Sidebar = ({ onToggle }) => {
       onToggle(newIsOpen);
     }
   };
+
+  const user = JSON.parse(localStorage.getItem("user")) || {};
   return (
     <>
       <div
@@ -44,9 +46,9 @@ const Sidebar = ({ onToggle }) => {
           <img src={userProfile} alt="User" className={style["user-img"]} />
           <div className={style["user-info"]}>
             {isOpen && (
-              <p className={style["user-name"]}>Diego Ferrera Matute</p>
+              <p className={style["user-name"]}>{user.nombre_usuario}</p>
             )}
-            {isOpen && <p className="user-role">Administrador</p>}
+            {isOpen && <p className="user-role">{user.role}</p>}
           </div>
         </div>
 
@@ -62,19 +64,25 @@ const Sidebar = ({ onToggle }) => {
               {isOpen && <span>Dashboard</span>}
             </div>
           </Link>
-               
-          <Link to="/Reportes" style={{ textDecoration: 'none', color: '#ffffffff' }}>
-          <div className={style["menu-item"]}>
-            <img src={reportesIcon} alt="Reportes" />
-            {isOpen && <span>Gestión Reportes</span>}
-          </div>
+
+          <Link
+            to="/Reportes"
+            style={{ textDecoration: "none", color: "#ffffffff" }}
+          >
+            <div className={style["menu-item"]}>
+              <img src={reportesIcon} alt="Reportes" />
+              {isOpen && <span>Gestión Reportes</span>}
+            </div>
           </Link>
 
-            <Link to="/inventario" style={{ textDecoration: 'none', color: '#ffffffff' }}>
-          <div className={style["menu-item"]}>
-            <img src={inventarioIcon} alt="Inventario" />
-            {isOpen && <span>Gestión Inventario</span>}
-          </div>
+          <Link
+            to="/inventario"
+            style={{ textDecoration: "none", color: "#ffffffff" }}
+          >
+            <div className={style["menu-item"]}>
+              <img src={inventarioIcon} alt="Inventario" />
+              {isOpen && <span>Gestión Inventario</span>}
+            </div>
           </Link>
           <Link
             to="/gestion-categorias"
@@ -95,15 +103,18 @@ const Sidebar = ({ onToggle }) => {
               {isOpen && <span>Gestión de Usuarios</span>}
             </div>
           </Link>
-          
-          <Link to="/pos" style={{ textDecoration: 'none', color: '#ffffffff' }}>
-          <div className={style["menu-item"]}>
-            <img src={puntoVentaIcon} alt="Punto de venta" />
-            {isOpen && <span>Punto de Venta</span>}
-          </div>
+
+          <Link
+            to="/pos"
+            style={{ textDecoration: "none", color: "#ffffffff" }}
+          >
+            <div className={style["menu-item"]}>
+              <img src={puntoVentaIcon} alt="Punto de venta" />
+              {isOpen && <span>Punto de Venta</span>}
+            </div>
           </Link>
         </div>
-        
+
         <Link to="/login" style={{ color: "#ffffffff" }}>
           <div className={style["sidebar-logout"]}>
             <img src={logoutIcon} alt="Logout" />

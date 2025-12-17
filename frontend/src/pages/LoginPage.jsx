@@ -31,6 +31,12 @@ const LoginPage = () => {
 
     const roleResponse = await CheckRolUser(credentials.email);
     console.log("Response:", response.user.nombre_usuario);
+    const rol = roleResponse.includes("administrador")
+      ? "administrador"
+      : roleResponse.includes("cliente")
+      ? "cliente"
+      : "desconocido";
+    console.log("Rol del usuario:", rol);
 
     localStorage.setItem(
       "user",
@@ -38,6 +44,7 @@ const LoginPage = () => {
         id: response.user.id,
         nombre_usuario: response.user.nombre_usuario,
         correo: response.user.correo,
+        role: rol,
       })
     );
 
