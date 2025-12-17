@@ -45,8 +45,10 @@ const Sidebar = ({ onToggle }) => {
           <br />
           <img src={userProfile} alt="User" className={style["user-img"]} />
           <div className={style["user-info"]}>
-            {isOpen && <p className={style["user-name"]}>{user.name}</p>}
-            {isOpen && <p className="user-role">Administrador</p>}
+            {isOpen && (
+              <p className={style["user-name"]}>{user.nombre_usuario}</p>
+            )}
+            {isOpen && <p className="user-role">{user.role}</p>}
           </div>
         </div>
 
