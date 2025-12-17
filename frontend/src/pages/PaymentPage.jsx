@@ -15,7 +15,7 @@ export default function PaymentPage() {
   const navigate = useNavigate();
   const { cartItems } = useCart();
 
-  const [metodo, setMetodo] = useState("transferencia"); // transferencia | tienda
+  const [metodo, setMetodo] = useState("transferencia"); 
   const [comprobante, setComprobante] = useState(null);
 
   const subtotal = useMemo(() => {

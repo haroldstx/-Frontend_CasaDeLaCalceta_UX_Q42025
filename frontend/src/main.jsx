@@ -19,6 +19,7 @@ import DashboardPage from "./pages/Dashboard.jsx";
 import OrdersPage from "./pages/OrdersPage.jsx";
 import AdminOrdersPage from "./pages/AdminOrdersPage.jsx";
 import PaymentPage from "./pages/PaymentPage.jsx";
+import PosPage from "./pages/PosPage.jsx";
 
 
 
@@ -45,6 +46,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/Pedidos" element={<OrdersPage />} />
           <Route path="/Pedidos-admin" element={<AdminOrdersPage />} />
           <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/pos" element={<PosPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer
