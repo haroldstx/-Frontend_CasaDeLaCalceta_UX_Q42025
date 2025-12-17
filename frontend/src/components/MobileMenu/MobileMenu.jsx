@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NavbarCliente from "../NavbarCliente/NavbarCliente";
 
-import './MobileMenu.css';
+import "./MobileMenu.css";
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const userLogin = JSON.parse(localStorage.getItem("user")) || {};
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem('user');
+      const raw = localStorage.getItem("user");
       setUser(raw ? JSON.parse(raw) : null);
     } catch (e) {
       setUser(null);
@@ -27,30 +28,28 @@ const MobileMenu = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
     setUser(null);
     closeMenu();
-    navigate('/');
+    navigate("/");
   };
 
   return (
     <div className="mobile-menu-container">
-      <button
-        className="hamburger-button"
-        onClick={toggleMenu}
-        aria-label="Menú de navegación"
-        aria-expanded={isOpen}
-      >
-        <span className="hamburger-line"></span>
-        <span className="hamburger-line"></span>
-        <span className="hamburger-line"></span>
-      </button>
-
-      {isOpen && (
-        <div className="menu-overlay" onClick={closeMenu}></div>
+      {userLogin?.id && (
+        <button
+          className="hamburger-button"
+          onClick={toggleMenu}
+          aria-label="Menú de navegación"
+          aria-expanded={isOpen}
+        >
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+        </button>
       )}
-
-      <nav className={`mobile-menu ${isOpen ? 'open' : ''}`}>
+      {isOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
+      <nav className={`mobile-menu ${isOpen ? "open" : ""}`}>
         <NavbarCliente />
       </nav>
     </div>

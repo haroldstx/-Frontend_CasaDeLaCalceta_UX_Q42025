@@ -30,8 +30,17 @@ const LoginPage = () => {
     console.log(response);
 
     const roleResponse = await CheckRolUser(credentials.email);
+    console.log("Response:", response.user.nombre_usuario);
 
-    console.log("esto es del rolResponse: ", roleResponse);
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        id: response.user.id,
+        nombre_usuario: response.user.nombre_usuario,
+        correo: response.user.correo,
+      })
+    );
+
     if (roleResponse.includes("administrador")) {
       navigate("/dashboard");
     } else if (roleResponse.includes("cliente")) {
