@@ -1,6 +1,31 @@
+.products-scroll-container {
+  max-height: calc(100vh - 250px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+}
+
+.products-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.products-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.products-scroll-container::-webkit-scrollbar-thumb {
+  background: #ff9025;
+  border-radius: 10px;
+}
+
+.products-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #e67d1a;
+}
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 cards por fila */
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   width: 100%;
 }

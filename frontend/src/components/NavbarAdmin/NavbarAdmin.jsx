@@ -95,13 +95,15 @@ const Sidebar = ({ onToggle }) => {
               {isOpen && <span>Gestión de Usuarios</span>}
             </div>
           </Link>
-
+          
+          <Link to="/pos" style={{ textDecoration: 'none', color: '#ffffffff' }}>
           <div className={style["menu-item"]}>
             <img src={puntoVentaIcon} alt="Punto de venta" />
             {isOpen && <span>Punto de Venta</span>}
           </div>
+          </Link>
         </div>
-
+        
         <Link to="/login" style={{ color: "#ffffffff" }}>
           <div className={style["sidebar-logout"]}>
             <img src={logoutIcon} alt="Logout" />

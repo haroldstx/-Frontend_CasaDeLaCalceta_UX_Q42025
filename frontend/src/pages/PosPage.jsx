@@ -1,16 +1,19 @@
 import React, { useMemo, useState } from "react";
 import NavbarAdmin from "../components/NavbarAdmin/NavbarAdmin";
-import ProductGrid from "../components/Layout/ProductGrid"; // ajusta si tu ruta es distinta
+import ProductGrid from "../components/Layout/ProductGrid";
 import PosProductCard from "../components/PosProductCard/PosProductCard";
 
-import BAC from "../assets/BAC.png";
+import producto1 from "../assets/producto1.png";
+import producto2 from "../assets/producto2.png";
+import producto3 from "../assets/producto3.png";
+import producto4 from "../assets/producto4.png";
 import "./PosPage.css";
 
 const MOCK_PRODUCTS = [
-  { id: 1, nombre: "Pin Snoopy dorado", categoria: "Caricatura", precio: 95, stock: 30, imagen: BAC },
-  { id: 2, nombre: "Calcetines Star Wars", categoria: "Anime", precio: 100, stock: 30, imagen: BAC },
-  { id: 3, nombre: "Pin Santa Claus", categoria: "Temporada", precio: 95, stock: 0, imagen: BAC },
-  { id: 4, nombre: "Calcetines Snoopy", categoria: "Caricatura", precio: 150, stock: 30, imagen: BAC },
+  { id: 1, nombre: "Pin Snoopy dorado", categoria: "Caricatura", precio: 95, stock: 30, imagen: producto1 },
+  { id: 2, nombre: "Calcetines Star Wars", categoria: "Anime", precio: 100, stock: 30, imagen: producto2 },
+  { id: 3, nombre: "Pin Santa Claus", categoria: "Temporada", precio: 95, stock: 0, imagen: producto4 },
+  { id: 4, nombre: "Calcetines Snoopy", categoria: "Caricatura", precio: 150, stock: 30, imagen: producto3 },
 ];
 
 export default function PosPage() {
@@ -28,9 +31,7 @@ export default function PosPage() {
 
   return (
     <div className="pos-layout">
-      <aside className="pos-sidebar">
-        <NavbarAdmin />
-      </aside>
+      <NavbarAdmin />
 
       <div className="pos-main">
         <header className="pos-header">
@@ -49,11 +50,13 @@ export default function PosPage() {
           <section className="pos-left">
             <h2 className="pos-section-title">Productos</h2>
 
-            <ProductGrid columns={4}>
-              {products.filter(Boolean).map((p) => (
-                <PosProductCard key={p.id} product={p} onAdd={handleAdd} />
-              ))}
-            </ProductGrid>
+            <div className="products-scroll-container">
+              <ProductGrid columns={4}>
+                {products.filter(Boolean).map((p) => (
+                  <PosProductCard key={p.id} product={p} onAdd={handleAdd} />
+                ))}
+              </ProductGrid>
+            </div>
           </section>
           <aside className="pos-right">
             <div className="pos-panel">
