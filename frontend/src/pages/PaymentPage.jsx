@@ -4,6 +4,7 @@ import { useCart } from "../contexts/CartContext";
 import { toast } from "react-toastify";
 import "./PaymentPage.css";
 import { SetSale } from "../middleware/api/Sale.jsx";
+import { SetSellDetails } from "../middleware/api/SelDetails.jsx";
 
 import BACIcon from "../assets/BAC.png";
 import FICOHSA from "../assets/ficohsaa.png";
@@ -47,6 +48,26 @@ export default function PaymentPage() {
     try {
       console.log("Datos de la venta:", saleData);
       const response = await SetSale(saleData);
+
+      const id_venta = response.id;
+
+      const formatData = cartItems.map((item) => {
+        const cantidad = item.quantity || 1;
+        const precio_unitario = Number(item.precio ?? item.price ?? 0);
+
+        return {
+          id_venta,
+          id_producto: item.id,
+          cantidad,
+          precio_unitario,
+          subtotal: cantidad * precio_unitario,
+        };
+      });
+
+      for (const product of formatData) {
+        await SetSellDetails(product);
+      }
+
       if (response) {
         toast.success(
           "Compra realizada con éxito, Gracias " + userLogin.nombre_usuario
