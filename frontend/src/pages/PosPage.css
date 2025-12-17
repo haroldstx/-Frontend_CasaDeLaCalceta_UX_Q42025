@@ -206,7 +206,7 @@
 .cart-item-remove {
   border: none;
   background: transparent;
-  color: #dc2626; /* rojo */
+  color: #dc2626; 
   font-size: 16px;
   font-weight: 900;
   cursor: pointer;
@@ -222,3 +222,7 @@
   flex: 1;
   margin-right: 10px;
 }
+
+
+
+   

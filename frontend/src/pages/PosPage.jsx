@@ -121,14 +121,13 @@ export default function PosPage() {
         <button
           className="cart-item-remove"
           onClick={() => handleRemove(item.id, item.nombre)}
-          title="Eliminar producto"
-        >
-          ✕
-        </button>
-      </div>
-    </li>
-  ))}
-</ul>
+                 title="Eliminar producto">
+                         ✕
+                     </button>
+                 </div>
+                 </li>
+                ))}
+            </ul>
 
               )}
 
