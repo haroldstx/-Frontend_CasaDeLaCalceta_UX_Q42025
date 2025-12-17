@@ -55,7 +55,6 @@ export default function PosPage() {
               ))}
             </ProductGrid>
           </section>
-
           <aside className="pos-right">
             <div className="pos-panel">
               <div className="pos-panel-title">Venta actual</div>
@@ -65,7 +64,6 @@ export default function PosPage() {
                 <span>Total</span>
                 <span>L. 0.00</span>
               </div>
-
               <button className="pos-pay-btn" type="button">
                 Cobrar
               </button>
@@ -76,3 +74,4 @@ export default function PosPage() {
     </div>
   );
 }
+
