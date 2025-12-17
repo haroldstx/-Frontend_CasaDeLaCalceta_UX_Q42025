@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import "./BillingPage.css";
 
-
 const formatLempiras = (value) => {
   const n = Number(value) || 0;
   return `L.${n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`;
@@ -12,6 +11,7 @@ const formatLempiras = (value) => {
 export default function BillingPage() {
   const navigate = useNavigate();
   const { cartItems } = useCart();
+  const user = JSON.parse(localStorage.getItem("user")) || {};
 
   const subtotal = useMemo(() => {
     return cartItems.reduce((sum, item) => {
@@ -26,7 +26,11 @@ export default function BillingPage() {
   return (
     <div className="bill-page">
       <header className="bill-header">
-        <button className="bill-back" onClick={() => navigate(-1)} aria-label="Volver">
+        <button
+          className="bill-back"
+          onClick={() => navigate(-1)}
+          aria-label="Volver"
+        >
           ←
         </button>
         <h1>Detalles de Facturación</h1>
@@ -45,13 +49,19 @@ export default function BillingPage() {
             return (
               <div key={item.id} className="bill-item">
                 <div className="bill-item-left">
-                  <div className="bill-item-name">{item.nombre ?? item.name ?? "Producto"}</div>
-                  <div className="bill-item-price">Precio: {formatLempiras(price)}</div>
+                  <div className="bill-item-name">
+                    {item.nombre ?? item.name ?? "Producto"}
+                  </div>
+                  <div className="bill-item-price">
+                    Precio: {formatLempiras(price)}
+                  </div>
                 </div>
 
                 <div className="bill-item-right">
                   <div className="bill-item-qty">Cantidad: {qty}</div>
-                  <div className="bill-item-total">Total: {formatLempiras(lineTotal)}</div>
+                  <div className="bill-item-total">
+                    Total: {formatLempiras(lineTotal)}
+                  </div>
                 </div>
               </div>
             );
@@ -73,9 +83,16 @@ export default function BillingPage() {
           </div>
         </div>
 
-        <button className="bill-pay" onClick={() => navigate("/payment")}>
+        {user.id ? (
+          <button className="bill-pay" onClick={() => navigate("/payment")}>
             Proceder a pagar
-        </button>
+          </button>
+        ) : (
+          <div className="pay-login-prompt">
+            Por favor, inicia sesión para realizar un pedido.
+            <button onClick={() => navigate("/login")}>aqui</button>
+          </div>
+        )}
       </main>
     </div>
   );
