@@ -109,3 +109,24 @@ export const ShowProducts = async () => {
     return [];
   }
 };
+
+// Función específica para HomePage (usa /products/getAll)
+export const getProductosHomepage = async () => {
+  try {
+    const response = await axios.get(`${PRODUCTS_ENDPOINT}/getAll`);
+    if (response.status === 200) {
+      return response?.data?.data || [];
+    }
+  } catch (error) {
+    if (error.response) {
+      if (error.response.status === 404) {
+        console.error("Productos no encontrados");
+      } else if (error.response.status === 500) {
+        console.error("Error del servidor");
+      }
+    } else {
+      console.error("Error de conexión al servidor");
+    }
+    return [];
+  }
+};
