@@ -9,9 +9,6 @@ export const SetSale = async (saleData) => {
     const response = await axios.post(`${API_SALE}`, saleData);
     console.log("Respuesta completa:", response);
     if (response.status === 201) {
-      toast.success("Venta creada exitosamente", {
-        position: "bottom-right",
-      });
       return response.data;
     }
   } catch (error) {
