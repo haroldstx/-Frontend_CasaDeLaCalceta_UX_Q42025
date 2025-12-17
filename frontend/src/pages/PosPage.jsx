@@ -48,6 +48,11 @@ export default function PosPage() {
     toast.success('Producto agregado a la venta');
   };
 
+  const handleRemove = (id, nombre) => {
+  setCart((prev) => prev.filter((item) => item.id !== id));
+  toast.info(`${nombre} eliminado de la venta`);
+};
+
   // Calcular total
   const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
@@ -60,7 +65,7 @@ export default function PosPage() {
     toast.success("Venta cobrada con éxito");
     setCart([]); 
   };
-
+  
   return (
     <div className="pos-layout">
       <NavbarAdmin />
@@ -99,15 +104,30 @@ export default function PosPage() {
                 <div className="pos-panel-sub">Agrega productos para iniciar una venta.</div>
               ) : (
                 <ul className="cart-list">
-                  {cart.map((item) => (
-                    <li key={item.id} className="cart-item">
-                      <span>
-                        {item.nombre} x{item.cantidad}
-                      </span>
-                      <span>L. {item.precio * item.cantidad}</span>
-                    </li>
-                  ))}
-                </ul>
+  {cart.map((item) => (
+    <li key={item.id} className="cart-item">
+      <div className="cart-item-left">
+        <span className="cart-item-name">
+          {item.nombre} x{item.cantidad}
+        </span>
+      </div>
+
+      <div className="cart-item-right">
+        <span className="cart-item-price">
+          L. {(item.precio * item.cantidad).toFixed(2)}
+        </span>
+
+        <button
+          className="cart-item-remove"
+          onClick={() => handleRemove(item.id, item.nombre)}
+                 title="Eliminar producto">
+                         ✕
+                     </button>
+                 </div>
+                 </li>
+                ))}
+            </ul>
+
               )}
 
               <div className="pos-total-row">
