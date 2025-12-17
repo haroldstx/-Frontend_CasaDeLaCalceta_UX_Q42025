@@ -166,3 +166,25 @@
   }
 }
 
+.cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.cart-item span:first-child {
+  flex: 1;
+  margin-right: 10px;
+}

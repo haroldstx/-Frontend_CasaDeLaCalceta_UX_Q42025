@@ -2,6 +2,8 @@ import React, { useMemo, useState } from "react";
 import NavbarAdmin from "../components/NavbarAdmin/NavbarAdmin";
 import ProductGrid from "../components/Layout/ProductGrid";
 import PosProductCard from "../components/PosProductCard/PosProductCard";
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 import producto1 from "../assets/producto1.png";
 import producto2 from "../assets/producto2.png";
@@ -18,15 +20,45 @@ const MOCK_PRODUCTS = [
 
 export default function PosPage() {
   const [search, setSearch] = useState("");
+  const [cart, setCart] = useState([]); // carrito
 
+  // Filtrado de productos
   const products = useMemo(() => {
     const s = search.trim().toLowerCase();
     return MOCK_PRODUCTS.filter((p) => !s || p.nombre.toLowerCase().includes(s));
   }, [search]);
 
+  // Agregar producto al carrito
   const handleAdd = (p) => {
-    // demo
-    alert(`Agregado: ${p?.nombre ?? "Producto"}`);
+    if (p.stock <= 0) {
+        toast.warn('No se puede agregar un producto sin stock.');
+      return;
+    }
+
+    setCart((prev) => {
+      const existing = prev.find((item) => item.id === p.id);
+      if (existing) {
+        return prev.map((item) =>
+          item.id === p.id ? { ...item, cantidad: item.cantidad + 1 } : item
+        );
+      }
+      return [...prev, { ...p, cantidad: 1 }];
+    });
+
+    toast.success('Producto agregado a la venta');
+  };
+
+  // Calcular total
+  const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+
+  // Cobrar venta
+  const handlePay = () => {
+    if (cart.length === 0) {
+      toast.info("No hay productos en la venta");
+      return;
+    }
+    toast.success("Venta cobrada con éxito");
+    setCart([]); 
   };
 
   return (
@@ -47,27 +79,43 @@ export default function PosPage() {
         </header>
 
         <div className="pos-body">
+          {/* IZQUIERDA - Productos */}
           <section className="pos-left">
             <h2 className="pos-section-title">Productos</h2>
-
             <div className="products-scroll-container">
               <ProductGrid columns={4}>
-                {products.filter(Boolean).map((p) => (
+                {products.map((p) => (
                   <PosProductCard key={p.id} product={p} onAdd={handleAdd} />
                 ))}
               </ProductGrid>
             </div>
           </section>
+
+          {/* DERECHA - Carrito */}
           <aside className="pos-right">
             <div className="pos-panel">
               <div className="pos-panel-title">Venta actual</div>
-              <div className="pos-panel-sub">Agrega productos para iniciar una venta.</div>
+              {cart.length === 0 ? (
+                <div className="pos-panel-sub">Agrega productos para iniciar una venta.</div>
+              ) : (
+                <ul className="cart-list">
+                  {cart.map((item) => (
+                    <li key={item.id} className="cart-item">
+                      <span>
+                        {item.nombre} x{item.cantidad}
+                      </span>
+                      <span>L. {item.precio * item.cantidad}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
               <div className="pos-total-row">
                 <span>Total</span>
-                <span>L. 0.00</span>
+                <span>L. {total.toFixed(2)}</span>
               </div>
-              <button className="pos-pay-btn" type="button">
+
+              <button className="pos-pay-btn" type="button" onClick={handlePay}>
                 Cobrar
               </button>
             </div>
