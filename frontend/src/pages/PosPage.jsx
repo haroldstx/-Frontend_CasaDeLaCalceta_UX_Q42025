@@ -53,7 +53,6 @@ export default function PosPage() {
   toast.info(`${nombre} eliminado de la venta`);
 };
 
-
   // Calcular total
   const total = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
@@ -66,7 +65,7 @@ export default function PosPage() {
     toast.success("Venta cobrada con éxito");
     setCart([]); 
   };
-
+  
   return (
     <div className="pos-layout">
       <NavbarAdmin />
