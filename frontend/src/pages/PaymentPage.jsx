@@ -16,7 +16,7 @@ const formatLempiras = (value) => {
 
 export default function PaymentPage() {
   const navigate = useNavigate();
-  const { cartItems } = useCart();
+  const { cartItems, clearCart } = useCart();
 
   const userLogin = JSON.parse(localStorage.getItem("user")) || {};
 
@@ -72,6 +72,7 @@ export default function PaymentPage() {
         toast.success(
           "Compra realizada con éxito, Gracias " + userLogin.nombre_usuario
         );
+        clearCart();
         navigate("/");
       }
     } catch (error) {

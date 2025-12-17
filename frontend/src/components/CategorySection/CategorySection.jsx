@@ -7,7 +7,7 @@ import ProductGrid from "../Layout/ProductGrid";
 // import Snoopy from "../../assets/uploads/productos/Snoopy.png";
 // import SoutPark from "../../assets/uploads/productos/SoutPark.png";
 import "./CategorySection.css";
-import { ShowProducts } from "../../middleware/api/Products.jsx";
+import { getProductosHomepage } from "../../middleware/api/Products.jsx";
 
 // const mockProducts = [
 //   {
@@ -113,9 +113,9 @@ const CategorySection = ({
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await ShowProducts();
-        setFormData(response.data || []);
-        console.log("Fetched products:", response.data);
+        const products = await getProductosHomepage();
+        setFormData(products || []);
+        console.log("Fetched products:", products);
       } catch (error) {
         console.error("Error fetching products:", error);
         setFormData([]);
