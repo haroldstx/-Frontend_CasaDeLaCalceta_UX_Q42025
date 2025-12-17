@@ -67,7 +67,21 @@ export const habilitarProducto = async (id) => {
     throw error;
   }
 };
-
+// Actualizar stock de un producto
+export const actualizarStock = async (id, nuevaCantidad) => {
+  try {
+    const response = await axios.patch(`${PRODUCTS_ENDPOINT}/${id}`, {
+      stock: nuevaCantidad
+    });
+    if (response.status === 200) {
+      return response?.data;
+    }
+  } catch (error) {
+    console.error("Error al actualizar stock:", error);
+    // No mostrar toast para no molestar al usuario
+    return null;
+  }
+};
 export const deshabilitarProducto = async (id) => {
   try {
     const response = await axios.patch(`${PRODUCTS_ENDPOINT}/deshabilitar/${id}`);
