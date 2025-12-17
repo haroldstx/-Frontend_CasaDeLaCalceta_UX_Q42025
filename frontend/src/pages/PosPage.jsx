@@ -1,34 +1,59 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import NavbarAdmin from "../components/NavbarAdmin/NavbarAdmin";
 import ProductGrid from "../components/Layout/ProductGrid";
 import PosProductCard from "../components/PosProductCard/PosProductCard";
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { crearVenta, crearDetalleVenta } from "../middleware/api/Sale";
+import { getAllProductos, actualizarStock } from "../middleware/api/Products";
 
-import producto1 from "../assets/producto1.png";
-import producto2 from "../assets/producto2.png";
-import producto3 from "../assets/producto3.png";
-import producto4 from "../assets/producto4.png";
 import "./PosPage.css";
-
-const MOCK_PRODUCTS = [
-  { id: 1, nombre: "Pin Snoopy dorado", categoria: "Caricatura", precio: 95, stock: 30, imagen: producto1 },
-  { id: 2, nombre: "Calcetines Star Wars", categoria: "Anime", precio: 100, stock: 30, imagen: producto2 },
-  { id: 3, nombre: "Pin Santa Claus", categoria: "Temporada", precio: 95, stock: 0, imagen: producto4 },
-  { id: 4, nombre: "Calcetines Snoopy", categoria: "Caricatura", precio: 150, stock: 30, imagen: producto3 },
-];
 
 export default function PosPage() {
   const [search, setSearch] = useState("");
   const [cart, setCart] = useState([]); // carrito
   const [tipoVenta, setTipoVenta] = useState("tienda"); // "tienda" o "online"
   const [metodoPago, setMetodoPago] = useState("efectivo"); // "efectivo" o "transferencia"
+  const [productosBackend, setProductosBackend] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Cargar productos del backend
+  useEffect(() => {
+    const cargarProductos = async () => {
+      setIsLoading(true);
+      try {
+        const data = await getAllProductos();
+        const API_URL = "http://localhost:3002";
+        // Filtrar solo productos activos y mapear imágenes
+        const productosActivos = data.filter(p => p.activo === true).map(p => {
+          const imageUrl =
+            p.imagenes?.length > 0
+              ? `${API_URL}/${p.imagenes[0].imagen
+                  .replace("public", "")
+                  .replace("//", "/")}`
+              : "https://via.placeholder.com/300x300";
+          
+          return {
+            ...p,
+            imagen: imageUrl
+          };
+        });
+        setProductosBackend(productosActivos);
+      } catch (error) {
+        console.error("Error al cargar productos:", error);
+        toast.error("Error al cargar productos");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    cargarProductos();
+  }, []);
 
   // Filtrado de productos
   const products = useMemo(() => {
     const s = search.trim().toLowerCase();
-    return MOCK_PRODUCTS.filter((p) => !s || p.nombre.toLowerCase().includes(s));
-  }, [search]);
+    return productosBackend.filter((p) => !s || p.nombre.toLowerCase().includes(s));
+  }, [search, productosBackend]);
 
   // Agregar producto al carrito
   const handleAdd = (p) => {
@@ -87,13 +112,81 @@ export default function PosPage() {
   const cantidadItems = cart.reduce((acc, item) => acc + item.cantidad, 0);
 
   // Cobrar venta
-  const handlePay = () => {
+  const handlePay = async () => {
     if (cart.length === 0) {
       toast.info("No hay productos en la venta");
       return;
     }
-    toast.success("Venta cobrada con éxito");
-    setCart([]); 
+
+    try {
+      // Crear la venta
+      const ventaData = {
+        id_cliente: 1,
+        id_empleado: 1,
+        metodo_pago: metodoPago,
+        total: total
+      };
+
+      console.log("Enviando venta:", ventaData);
+      const ventaCreada = await crearVenta(ventaData);
+      console.log("Venta creada:", ventaCreada);
+      
+      if (!ventaCreada) {
+        return; // El error ya se manejó en crearVenta
+      }
+
+      const id_venta = ventaCreada.data?.id || ventaCreada.id;
+      console.log("ID de venta:", id_venta);
+      
+      if (!id_venta) {
+        toast.error("No se pudo obtener el ID de la venta");
+        return;
+      }
+
+      // Crear los detalles de la venta y actualizar stock
+      for (const item of cart) {
+        const detalleData = {
+          id_venta: id_venta,
+          id_producto: item.id,
+          cantidad: item.cantidad,
+          precio_unitario: item.precio,
+          subtotal: item.precio * item.cantidad
+        };
+        
+        console.log("Enviando detalle:", detalleData);
+        const detalleCreado = await crearDetalleVenta(detalleData);
+        
+        // TODO: Descomentar cuando el backend tenga el endpoint PATCH /api/products/:id
+        // if (detalleCreado) {
+        //   const nuevoStock = item.stock - item.cantidad;
+        //   await actualizarStock(item.id, nuevoStock);
+        // }
+      }
+
+      toast.success("Venta procesada con éxito");
+      setCart([]);
+      
+      // Recargar productos para refrescar la lista
+      const data = await getAllProductos();
+      const API_URL = "http://localhost:3002";
+      const productosActivos = data.filter(p => p.activo === true).map(p => {
+        const imageUrl =
+          p.imagenes?.length > 0
+            ? `${API_URL}/${p.imagenes[0].imagen
+                .replace("public", "")
+                .replace("//", "/")}`
+            : "https://via.placeholder.com/300x300";
+        
+        return {
+          ...p,
+          imagen: imageUrl
+        };
+      });
+      setProductosBackend(productosActivos);
+    } catch (error) {
+      console.error("Error al procesar la venta:", error);
+      toast.error("Error al procesar la venta");
+    }
   };
   
   return (
