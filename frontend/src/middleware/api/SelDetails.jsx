@@ -10,9 +10,6 @@ export const SetSellDetails = async (sellDetailsData) => {
     const response = await axios.post(`${API_SELL_DETAILS}`, sellDetailsData);
     console.log("Respuesta completa:", response);
     if (response.status === 201) {
-      toast.success("Detalles de venta creados exitosamente", {
-        position: "bottom-right",
-      });
       return response.data;
     }
   } catch (error) {
