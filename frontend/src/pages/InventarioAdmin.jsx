@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../components/EditarPerfil/editarPerfil.module.css";
-import NavbarCliente from "../components/NavbarCliente/NavbarCliente";
+import styles from "../components/InventarioAdmin/inventarioAdmin.module.css";
+import NavbarAdmin from "../components/NavbarAdmin/NavbarAdmin";
 import { getUserProfile } from "../middleware/user.js";
 import profileIcon from "../assets/icons/profile_icon_grey.svg";
 import lockIcon from "../assets/icons/lock_icon_grey.svg";
@@ -71,7 +71,7 @@ const EditarPerfilPage = () => {
 
       <div className={styles.mainContent}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Editar Perfil</h1>
+          <h1 className={styles.title}>Inventario</h1>
 
           <button
             className={styles.notificationButton}

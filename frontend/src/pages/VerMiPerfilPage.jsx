@@ -90,7 +90,7 @@ const VerMiPerfilPage = () => {
           <div className={styles.fieldContainer}>
             <label className={styles.fieldLabel}>Nombre</label>
             <div className={styles.fieldBox}>
-              <span className={styles.fieldText}>{user.nombre}</span>
+              <span className={styles.fieldText}></span>
             </div>
           </div>
 
@@ -98,7 +98,7 @@ const VerMiPerfilPage = () => {
           <div className={styles.fieldContainer}>
             <label className={styles.fieldLabel}>Apellido</label>
             <div className={styles.fieldBox}>
-              <span className={styles.fieldText}>{user.apellido}</span>
+              <span className={styles.fieldText}></span>
             </div>
           </div>
 
@@ -106,7 +106,7 @@ const VerMiPerfilPage = () => {
           <div className={styles.fieldContainer}>
             <label className={styles.fieldLabel}>Usuario</label>
             <div className={styles.fieldBox}>
-              <span className={styles.fieldText}>{user.usuario}</span>
+              <span className={styles.fieldText}></span>
             </div>
           </div>
 
@@ -114,7 +114,7 @@ const VerMiPerfilPage = () => {
           <div className={styles.fieldContainer}>
             <label className={styles.fieldLabel}>Correo</label>
             <div className={styles.fieldBox}>
-              <span className={styles.fieldText}>{user.correo}</span>
+              <span className={styles.fieldText}></span>
             </div>
           </div>
 
@@ -122,7 +122,7 @@ const VerMiPerfilPage = () => {
           <div className={styles.fieldContainer}>
             <label className={styles.fieldLabel}>Teléfono</label>
             <div className={styles.fieldBox}>
-              <span className={styles.fieldText}>{user.telefono}</span>
+              <span className={styles.fieldText}></span>
             </div>
           </div>
 
@@ -130,7 +130,7 @@ const VerMiPerfilPage = () => {
           <div className={styles.fieldContainer}>
             <label className={styles.fieldLabel}>Dirección</label>
             <div className={styles.fieldBox}>
-              <span className={styles.fieldText}>{user.direccion}</span>
+              <span className={styles.fieldText}></span>
             </div>
           </div>
         </div>
