@@ -1,7 +1,9 @@
 import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
+import { toast } from "react-toastify";
 import "./PaymentPage.css";
+import { SetSale } from "../middleware/api/Sale.jsx";
 
 import BACIcon from "../assets/BAC.png";
 import FICOHSA from "../assets/ficohsaa.png";
@@ -15,6 +17,8 @@ export default function PaymentPage() {
   const navigate = useNavigate();
   const { cartItems } = useCart();
 
+  const userLogin = JSON.parse(localStorage.getItem("user")) || {};
+
   const [metodo, setMetodo] = useState("transferencia"); // transferencia | tienda
   const [comprobante, setComprobante] = useState(null);
 
@@ -25,13 +29,47 @@ export default function PaymentPage() {
     }, 0);
   }, [cartItems]);
 
+  const handlePurchase = async () => {
+    if (!userLogin.id) {
+      toast.error("Debes iniciar sesión para realizar la compra");
+      return;
+    }
+
+    const saleData = {
+      id_cliente: userLogin.id,
+      id_empleado: 1,
+      metodo_pago: metodo,
+      comprobante_pago: null,
+      estado_pago: "Pendiente",
+      total,
+    };
+
+    try {
+      console.log("Datos de la venta:", saleData);
+      const response = await SetSale(saleData);
+      if (response) {
+        toast.success(
+          "Compra realizada con éxito, Gracias " + userLogin.nombre_usuario
+        );
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Ocurrió un error al realizar la compra.");
+    }
+  };
+
   const isv = Math.round(subtotal * 0.15);
   const total = subtotal + isv;
 
   return (
     <div className="pay-page">
       <header className="pay-header">
-        <button className="pay-back" onClick={() => navigate(-1)} aria-label="Volver">
+        <button
+          className="pay-back"
+          onClick={() => navigate(-1)}
+          aria-label="Volver"
+        >
           ←
         </button>
         <h1>Carrito</h1>
@@ -41,31 +79,28 @@ export default function PaymentPage() {
         {/* IZQUIERDA */}
         <section className="pay-left">
           <h2 className="pay-title">Pago</h2>
+          <div className="pay-label">Método de pago:</div>
+          <div className="pay-radio-group">
+            <label className="pay-radio">
+              <input
+                type="radio"
+                name="metodo"
+                checked={metodo === "transferencia"}
+                onChange={() => setMetodo("transferencia")}
+              />
+              <span>Transferencia</span>
+            </label>
 
-            <div className="pay-label">Método de pago:</div>
-
-            <div className="pay-radio-group">
-              <label className="pay-radio">
-            <input
-          type="radio"
-      name="metodo"
-      checked={metodo === "transferencia"}
-      onChange={() => setMetodo("transferencia")}
-    />
-    <span>Transferencia</span>
-  </label>
-
-        <label className="pay-radio">
-    <input
-      type="radio"
-      name="metodo"
-      checked={metodo === "tienda"}
-      onChange={() => setMetodo("tienda")}
-    />
-    <span>En tienda</span>
-  </label>
-</div>
-
+            <label className="pay-radio">
+              <input
+                type="radio"
+                name="metodo"
+                checked={metodo === "tienda"}
+                onChange={() => setMetodo("tienda")}
+              />
+              <span>En tienda</span>
+            </label>
+          </div>
           {metodo === "transferencia" && (
             <>
               <div className="bank-card">
@@ -85,7 +120,9 @@ export default function PaymentPage() {
               </div>
 
               <div className="pay-upload">
-                <div className="upload-text">Subir imagen de transferencia en el siguiente apartado.</div>
+                <div className="upload-text">
+                  Subir imagen de transferencia en el siguiente apartado.
+                </div>
 
                 <input
                   id="comprobante"
@@ -100,15 +137,28 @@ export default function PaymentPage() {
                 </label>
 
                 <div className="upload-help">
-                  {comprobante ? `Archivo: ${comprobante.name}` : "Solamente se aceptan archivos en formato .png, .jpeg, .jpg, .gif."}
+                  {comprobante
+                    ? `Archivo: ${comprobante.name}`
+                    : "Solamente se aceptan archivos en formato .png, .jpeg, .jpg, .gif."}
                 </div>
-              </div>             
-            </> 
+              </div>
+            </>
           )}
-          <button type="button" className="pay-btn" disabled={metodo === "transferencia" && !comprobante}
-                    onClick={() => alert("Pedido realizado con éxito!")}>
-                      Realizar pedido
-                </button>
+          {userLogin.id ? (
+            <button
+              type="button"
+              className="pay-btn"
+              disabled={metodo === "transferencia" && !comprobante}
+              onClick={() => handlePurchase()}
+            >
+              Realizar pedido
+            </button>
+          ) : (
+            <div className="pay-login-prompt">
+              Por favor, inicia sesión para realizar un pedido.
+              <button onClick={() => navigate("/login")}>aqui</button>
+            </div>
+          )}
         </section>
 
         {/* DERECHA */}
@@ -126,13 +176,19 @@ export default function PaymentPage() {
               return (
                 <div key={item.id} className="sum-item">
                   <div className="sum-item-left">
-                    <div className="sum-item-name">{item.nombre ?? item.name ?? "Producto"}</div>
-                    <div className="sum-item-price">Precio: {formatLempiras(price)}</div>
+                    <div className="sum-item-name">
+                      {item.nombre ?? item.name ?? "Producto"}
+                    </div>
+                    <div className="sum-item-price">
+                      Precio: {formatLempiras(price)}
+                    </div>
                   </div>
 
                   <div className="sum-item-right">
                     <div className="sum-item-qty">Cantidad: {qty}</div>
-                    <div className="sum-item-total">Total: {formatLempiras(lineTotal)}</div>
+                    <div className="sum-item-total">
+                      Total: {formatLempiras(lineTotal)}
+                    </div>
                   </div>
                 </div>
               );
