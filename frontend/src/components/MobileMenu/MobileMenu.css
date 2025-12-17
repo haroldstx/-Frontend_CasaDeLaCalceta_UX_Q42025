@@ -60,11 +60,11 @@
 
 .mobile-menu {
   position: fixed;
-  left: -300px;
-  top: 70px;
-  width: 300px;
-  height: calc(100vh - 70px);
-  background-color: #B41112;
+  left: -370px;
+  top: 0px;
+  width: 370px;
+  height: calc(100vh - 0px);
+  background-color: #8a0b0b;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
   z-index: 95;
   transition: left 0.3s ease;

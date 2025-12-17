@@ -6,18 +6,37 @@ import logo from "../assets/logo.png";
 import emailIcon from "../assets/email.png";
 import passwordIcon from "../assets/lock.png";
 import { Link } from "react-router-dom";
+import { LoginUser, CheckRolUser } from "../middleware/api/Users.jsx";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
+    e.preventDefault();
     setCredentials({
       ...credentials,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await LoginUser(credentials.email, credentials.password);
+    console.log(response);
+
+    const roleResponse = await CheckRolUser(credentials.email);
+
+    console.log("esto es del rolResponse: ", roleResponse);
+    if (roleResponse.includes("administrador")) {
+      navigate("/dashboard");
+    } else if (roleResponse.includes("cliente")) {
+      navigate("/");
+    }
   };
 
   return (
@@ -52,7 +71,11 @@ const LoginPage = () => {
           <h1>¡Bienvenido!</h1>
           <h4>Inicia sesión en tu cuenta</h4>
 
-          <form onSubmit={{}}>
+          <form
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
+          >
             {/* Input Correo usando tu componente */}
             <InputField
               type="email"
