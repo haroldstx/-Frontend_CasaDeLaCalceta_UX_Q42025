@@ -70,11 +70,12 @@ const Sidebar = ({ onToggle }) => {
           </div>
           </Link>
 
+            <Link to="/inventario" style={{ textDecoration: 'none', color: '#ffffffff' }}>
           <div className={style["menu-item"]}>
             <img src={inventarioIcon} alt="Inventario" />
             {isOpen && <span>Gestión Inventario</span>}
           </div>
-
+          </Link>
           <Link
             to="/gestion-categorias"
             style={{ textDecoration: "none", color: "#ffffffff" }}
