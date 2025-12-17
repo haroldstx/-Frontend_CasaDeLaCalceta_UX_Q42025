@@ -32,6 +32,7 @@ export default function PosProductCard({ product, onAdd }) {
 
   const disabled = stock <= 0;
 
+  
   return (
     <div className="pos-card">
       <div className="pos-card-imgwrap">
