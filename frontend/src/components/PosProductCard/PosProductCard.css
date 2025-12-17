@@ -1,0 +1,85 @@
+.pos-card{
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pos-card-imgwrap{
+  padding: 10px;
+}
+
+.pos-card-img{
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.pos-card-body{
+  padding: 10px 12px 12px;
+}
+
+.pos-card-category{
+  font-size: 11px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.pos-card-row{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.pos-card-name{
+  font-size: 12px;
+  font-weight: 900;
+  color: #111;
+}
+
+.pos-card-price{
+  font-size: 12px;
+  font-weight: 900;
+  color: #0ea5a4;
+  white-space: nowrap;
+}
+
+.pos-card-stock{
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.pos-card-stock.in{ color: #f97316; }
+.pos-card-stock.out{ color: #9ca3af; }
+
+.pos-card-btn{
+  margin-top: 10px;
+  width: 100%;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: #fdd929;
+  color: #111;
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pos-card-btn:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pos-card-btn-icon{
+  transform: translateY(-1px);
+}

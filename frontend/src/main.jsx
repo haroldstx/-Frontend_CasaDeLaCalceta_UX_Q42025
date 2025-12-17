@@ -19,6 +19,7 @@ import DashboardPage from "./pages/Dashboard.jsx";
 import OrdersPage from "./pages/OrdersPage.jsx";
 import AdminOrdersPage from "./pages/AdminOrdersPage.jsx";
 import PaymentPage from "./pages/PaymentPage.jsx";
+import PosPage from "./pages/PosPage.jsx";
 import InventarioAdmin from "./pages/InventarioAdmin.jsx";
 
 import CambiarPassword from "./pages/CambiarPassword.jsx";
@@ -50,6 +51,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/Pedidos" element={<OrdersPage />} />
           <Route path="/Pedidos-admin" element={<AdminOrdersPage />} />
           <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/pos" element={<PosPage />} />
           <Route path="/inventario" element={<InventarioAdmin />} />
         </Routes>
       </BrowserRouter>

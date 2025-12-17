@@ -1,4 +1,7 @@
 import React, { useMemo } from "react";
+import NavbarAdmin from "../components/NavbarAdmin/NavbarAdmin";
+import * as XLSX from "xlsx";
+
 import {
   ResponsiveContainer,
   BarChart,
@@ -11,6 +14,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
+
 import "./ReportsPage.css";
 
 const salesData = [
@@ -45,114 +49,126 @@ const MONTHS = [
   { value: "12", label: "Diciembre" },
 ];
 
-const ReportsPage = () => {
+export default function ReportsPage() {
   const years = useMemo(() => {
     const current = new Date().getFullYear();
-    // Ajusta aquí si quieres más/menos años
     return Array.from({ length: 7 }, (_, i) => String(current - i));
   }, []);
 
+  const handleExportExcel = () => {
+    const wsResumen = XLSX.utils.json_to_sheet([
+      { KPI: "Ingresos Totales", Valor: 5000 },
+      { KPI: "Ganancias Totales", Valor: 2000 },
+      { KPI: "Total Pedidos", Valor: 200 },
+    ]);
+
+    const wsVentas = XLSX.utils.json_to_sheet(
+      salesData.map((r) => ({ Día: r.day, Ventas: r.value }))
+    );
+
+    const wsMetodos = XLSX.utils.json_to_sheet(
+      paymentData.map((r) => ({ Método: r.name, Total: r.value }))
+    );
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, wsResumen, "Resumen");
+    XLSX.utils.book_append_sheet(wb, wsVentas, "Ventas");
+    XLSX.utils.book_append_sheet(wb, wsMetodos, "Métodos de pago");
+
+    XLSX.writeFile(wb, "reporte.xlsx");
+  };
+
   return (
-    <div className="reports-page">
-      {/* Header */}
-      <div className="reports-header">
-        <button
-          className="back-btn"
-          onClick={() => window.history.back()}
-          aria-label="Volver"
-          type="button"
-        >
-          ←
-        </button>
-        <h1 className="reports-title">Reportes</h1>
-      </div>
+    <div className="reports-layout">
+      <aside className="reports-sidebar">
+        <NavbarAdmin />
+      </aside>
 
-      {/* KPIs */}
-      <div className="kpi-row">
-        <div className="kpi-card">
-          <div className="kpi-label">Ingresos Totales</div>
-          <div className="kpi-value">L. 5,000</div>
-        </div>
+      <main className="reports-main">
+        <header className="reports-topbar">
+          <h1 className="reports-topbar-title">Reportes</h1>
+          <div className="reports-topbar-line" />
+        </header>
 
-        <div className="kpi-card">
-          <div className="kpi-label">Ganancias Totales</div>
-          <div className="kpi-value">L. 2,000</div>
-        </div>
+        <div className="reports-page">
+          {/* KPIs */}
+          <div className="kpi-row">
+            <div className="kpi-card">
+              <div className="kpi-label">Ingresos Totales</div>
+              <div className="kpi-value">L. 5,000</div>
+            </div>
 
-        <div className="kpi-card">
-          <div className="kpi-label">Total Pedidos</div>
-          <div className="kpi-value">200</div>
-        </div>
-      </div>
+            <div className="kpi-card">
+              <div className="kpi-label">Ganancias Totales</div>
+              <div className="kpi-value">L. 2,000</div>
+            </div>
 
-      {/* Filtros */}
-      <div className="filters-row">
-        <span className="filters-label">Ventas:</span>
+            <div className="kpi-card">
+              <div className="kpi-label">Total Pedidos</div>
+              <div className="kpi-value">200</div>
+            </div>
+          </div>
 
-        <select className="filters-select" defaultValue="7d">
-          <option value="7d">Últimos 7 días</option>
-          <option value="30d">Últimos 30 días</option>
-        </select>
+          {/* Filtros */}
+          <div className="filters-row">
+            <span className="filters-label">Ventas:</span>
 
-        <select className="filters-select" defaultValue="">
-          <option value="" disabled>
-            Mes
-          </option>
-          {MONTHS.map((m) => (
-            <option key={m.value} value={m.value}>
-              {m.label}
-            </option>
-          ))}
-        </select>
+            <select className="filters-select" defaultValue="7d">
+              <option value="7d">Últimos 7 días</option>
+              <option value="30d">Últimos 30 días</option>
+            </select>
 
-        <select className="filters-select" defaultValue="">
-          <option value="" disabled>
-            Año
-          </option>
-          {years.map((y) => (
-            <option key={y} value={y}>
-              {y}
-            </option>
-          ))}
-        </select>
-
-        <button className="export-btn" type="button">
-          Exportar a Excel <span className="export-icon">⬇</span>
-        </button>
-      </div>
-
-      {/* Gráfica de ventas */}
-      <div className="chart-card">
-        <div className="chart-responsive">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={salesData} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="day" />
-              <YAxis />
-              <Tooltip />
-              <Bar type="monotone" dataKey="value" stroke="#565656ff" strokeWidth={1} fill="#FDD929" dot />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-
-      {/* Gráfica métodos de pago */}
-      <div className="chart-card center">
-        <h3 className="chart-title">Ventas por Método de Pago</h3>
-
-        <div className="pie-wrap">
-          <PieChart width={320} height={320}>
-            <Pie data={paymentData} dataKey="value" outerRadius={110} label>
-              {paymentData.map((_, i) => (
-                <Cell key={i} fill={COLORS[i]} />
+            <select className="filters-select" defaultValue="">
+              <option value="" disabled>Mes</option>
+              {MONTHS.map((m) => (
+                <option key={m.value} value={m.value}>{m.label}</option>
               ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
+            </select>
+
+            <select className="filters-select" defaultValue="">
+              <option value="" disabled>Año</option>
+              {years.map((y) => (
+                <option key={y} value={y}>{y}</option>
+              ))}
+            </select>
+
+            <button className="export-btn" type="button" onClick={handleExportExcel}>
+              Exportar a Excel <span className="export-icon">⬇</span>
+            </button>
+          </div>
+
+          {/* Gráfica de ventas */}
+          <div className="chart-card">
+            <div className="chart-responsive">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={salesData} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="day" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="value" stroke="#565656ff" strokeWidth={1} fill="#FDD929" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Gráfica métodos de pago */}
+          <div className="chart-card center">
+            <h3 className="chart-title">Ventas por Método de Pago</h3>
+
+            <div className="pie-wrap">
+              <PieChart width={320} height={320}>
+                <Pie data={paymentData} dataKey="value" outerRadius={110} label>
+                  {paymentData.map((_, i) => (
+                    <Cell key={i} fill={COLORS[i]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </div>
+          </div>
         </div>
-      </div>
+      </main>
     </div>
   );
-};
-
-export default ReportsPage;
+}
