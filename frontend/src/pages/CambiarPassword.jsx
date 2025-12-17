@@ -7,9 +7,9 @@ import lockIcon from "../assets/icons/Lock.svg";
 import editIcon from "../assets/icons/edit_grey.svg";
 import arrowIcon from "../assets/icons/arrow_icon.svg";
 import notificationIcon from "../assets/icons/notification.svg";
-import checkIcon from "../assets/icons/check.svg";
+import checkIcon from "../assets/icons/Check.svg";
 import eyeClosed from "../assets/icons/eye.svg";
-import eyeOpen from "../assets/icons/lock.svg";
+import eyeOpen from "../assets/icons/Lock.svg";
 
 const CambiarPassword = () => {
   const [form, setForm] = useState({
