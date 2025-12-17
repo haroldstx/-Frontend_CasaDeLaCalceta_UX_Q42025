@@ -151,12 +151,32 @@
   background: white;
   border-radius: 8px;
   overflow: hidden;
+  max-height: calc(100vh - 280px);
+  overflow-y: auto;
+}
+
+.tableWrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+  background: #ff9025;
+  border-radius: 4px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb:hover {
+  background: #e67d1a;
 }
 
 .tableHeader,
 .tableRow {
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   padding: 12px 16px;
   border-bottom: 1px solid #eaecf0;
 
@@ -246,3 +266,37 @@
   font-size: 14px;
   background: white;
 }
+
+/* Actions cell */
+.actionsCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.editButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #f97316;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 6px;
+}
+
+.editButton:hover {
+  background-color: #ea580c;
+  transform: scale(1.05);
+}
+
+.editButton img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
